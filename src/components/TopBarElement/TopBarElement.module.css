@@ -1,0 +1,23 @@
+.iconLink {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  color: var(--nord7);
+  transition:
+    color 0.18s,
+    transform 0.18s;
+  cursor: pointer;
+}
+
+.iconLink:focus,
+.iconLink:hover {
+  color: var(--nord8);
+  outline: none;
+}
+
+.iconAnchor {
+  display: flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+}

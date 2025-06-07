@@ -1,0 +1,47 @@
+.terminalContent {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  background: transparent;
+  color: var(--nord4);
+  font-family: "Fira Mono", "Fira Code", monospace;
+  font-size: 1rem;
+  padding: 1.5rem 1.5rem 0 1.2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  scrollbar-width: none; /* Firefox */
+}
+
+.terminalContent::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.line,
+.inputLine {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.2rem;
+}
+
+.prompt {
+  color: var(--nord8);
+  font-weight: 600;
+}
+
+.input {
+  background: transparent;
+  border: none;
+  color: var(--nord4);
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+  flex: 1;
+}
+
+.output {
+  color: var(--nord7);
+  margin: 0 0 0.2rem 2.5rem;
+  white-space: pre-wrap;
+}

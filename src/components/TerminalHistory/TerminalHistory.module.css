@@ -1,0 +1,63 @@
+.history {
+  flex: 1 1 0;
+  overflow-y: auto;
+  min-height: 0;
+  font-family: "Fira Mono", "Fira Code", monospace;
+  font-size: 1rem;
+  padding-bottom: 0.5rem;
+  background: transparent;
+  scrollbar-width: none; /* Firefox */
+}
+.history::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.line {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.2rem;
+}
+
+.prompt {
+  color: var(--nord8);
+  font-weight: 600;
+  min-width: 13ch;
+  display: inline-block;
+}
+
+.outputLine {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.2rem;
+}
+
+.promptSpacer {
+  min-width: 13ch;
+  display: inline-block;
+  content: "";
+}
+
+.output,
+.error,
+.info {
+  margin: 0;
+  white-space: pre-wrap;
+  font-family: inherit;
+  font-size: inherit;
+  background: transparent;
+}
+
+.output {
+  color: var(--nord7);
+}
+
+.error {
+  color: #ff5555;
+  background: rgba(255, 85, 85, 0.08);
+  font-weight: bold;
+}
+
+.info {
+  color: var(--nord14);
+  background: rgba(163, 190, 140, 0.08);
+}

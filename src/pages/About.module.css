@@ -1,0 +1,42 @@
+.aboutContent {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  color: var(--nord4);
+  box-sizing: border-box;
+  padding: clamp(1rem, 4vw, 2.5rem) clamp(1rem, 5vw, 2.75rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.aboutTitle {
+  color: var(--nord8);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.03em;
+  text-align: center;
+}
+
+.aboutSection {
+  margin-bottom: 2rem;
+}
+
+.aboutSectionTitle {
+  color: var(--nord7);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.aboutParagraph {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.aboutList {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 1.05rem;
+}

@@ -1,0 +1,34 @@
+.layout {
+  --topbar-height: 2.5rem;
+  --dock-height: 8rem;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: var(--topbar-height) 1fr var(--dock-height);
+  grid-template-columns: 1fr;
+  background: var(--nord0);
+  width: 100vw;
+}
+
+.header {
+  grid-row: 1;
+}
+
+.mainContent {
+  grid-row: 2;
+  min-height: 0;
+  min-width: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.footer {
+  grid-row: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

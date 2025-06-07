@@ -1,0 +1,75 @@
+.card {
+  background: var(--nord1);
+  border-radius: 1.2rem;
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.18),
+    0 2px 4px rgba(0, 0, 0, 0.12);
+  padding: 2rem 2.5rem 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  position: relative;
+  transition:
+    box-shadow 0.2s,
+    transform 0.2s;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.card:hover {
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.22),
+    0 4px 8px rgba(0, 0, 0, 0.16);
+  transform: translateY(-4px);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.title {
+  color: var(--nord8);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+.arrow {
+  margin-left: 0.5rem;
+  transition:
+    transform 0.2s,
+    color 0.2s;
+  color: var(--nord7);
+  width: 1.4rem;
+  height: 1.4rem;
+  flex-shrink: 0;
+}
+
+.card:hover .arrow {
+  transform: translateY(-0.3rem) scale(1.1);
+  color: var(--nord8);
+}
+
+.description {
+  color: var(--nord4);
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+
+.learned {
+  color: var(--nord14);
+  font-size: 0.98rem;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+.techList {
+  display: flex;
+  gap: 0.7rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}

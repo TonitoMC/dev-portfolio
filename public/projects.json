@@ -1,0 +1,26 @@
+[
+  {
+    "title": "HTML-Only Interactive Story",
+    "description": "A short interactive story about an abandoned mansion built using exclusively HTML",
+    "learned": "Building simple web pages & writing semantic HTML",
+    "url": "https://calicheoficial.lat/201105/html-only/html/index.html"
+  },
+  {
+    "title": "Pure CSS Kitty",
+    "description": "A CSS recreation of a drawing found online, with the additional constraint of not utilizing absolute positioning",
+    "learned": "Basic CSS concepts surrounding positioning, layouts & styling",
+    "url": "https://calicheoficial.lat/201105/css-only/index.html"
+  },
+  {
+    "title": "JS-Only Chat App",
+    "description": "A frontend for a very simple chat app API using exclusively JavaScript for HTML element creation & styling",
+    "learned": "Basic JavaScript concepts, DOM modification, styling & element creation utilizing JS",
+    "url": "https://calicheoficial.lat/201105/js-only/index.html"
+  },
+  {
+    "title": "Series Tracker API",
+    "description": "A REST API for giving functionality to an already existing frontend",
+    "learned": "Backend development, REST API documentation & Docker for application deployment",
+    "url": "https://github.com/TonitoMC/backend-only"
+  }
+]

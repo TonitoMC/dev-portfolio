@@ -1,0 +1,46 @@
+[
+  {
+    "question": "What technologies do you specialize in?",
+    "answer": "My go-to tools for Web projects are React, Golang & Postgres"
+  },
+  {
+    "question": "Are you open to freelance or contract work?",
+    "answer": "Yes! I’m always interested in new opportunities. Feel free to reach out via the contact section."
+  },
+  {
+    "question": "What inspired you to become a developer?",
+    "answer": "I've always loved solving puzzles and building things, having the ability to build whatever I want from scratch made me love programming."
+  },
+  {
+    "question": "How do you keep your skills up to date?",
+    "answer": "I enjoy experimenting with new frameworks / languages as well as reading about best practices or different ways to do things"
+  },
+  {
+    "question": "What operating system and tools do you use daily?",
+    "answer": "I use Arch (btw) as my daily driver & Neovim for text editing. On pretty much every project I work on I include Git for version control as well as Docker for containerization / deployment. I'm a big fan of terminal workflows & enjoy optimizing / ricing my setup."
+  },
+  {
+    "question": "What’s your workflow for learning new technologies?",
+    "answer": "I start with the official docks and small projects then dive into real world use cases"
+  },
+  {
+    "question": "What’s your approach to writing maintainable code?",
+    "answer": "I focus on clarity, modularity & documentation. I try to let my code speak for itself (Golang enjoyer) while also including information about design decisions or complicated bits of code through comments."
+  },
+  {
+    "question": "How do you handle feedback or code reviews?",
+    "answer": "Feedback is always a chance to grow, I love constructive criticism and always try to do better next time"
+  },
+  {
+    "question": "What are your long-term career goals?",
+    "answer": "I want to build things that matter, mentor others & eventually lead a team."
+  },
+  {
+    "question": "What’s a fun fact about you that’s not on your resume?",
+    "answer": "I dedicated a couple of years of my life to gaming professionally & still have a side-gig doing coaching."
+  },
+  {
+    "question": "What’s the most challenging project you’ve worked on?",
+    "answer": "Building this portfolio was a real challenge—balancing design, interactivity, and code quality pushed me to learn a lot!"
+  }
+]
