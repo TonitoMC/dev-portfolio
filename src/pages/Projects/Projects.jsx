@@ -21,10 +21,10 @@ export default function Projects({ onClose }) {
 
   return (
     <Window title="Projects" onClose={onClose}>
-      <div className={styles.projectsContent}>
-        <h2 className={styles.projectsTitle}>Projects</h2>
+      <main className="windowContent">
+        <h1>Projects</h1>
         <ProjectList projects={projects} />
-      </div>
+      </main>
     </Window>
   );
 }

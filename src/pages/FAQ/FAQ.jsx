@@ -14,10 +14,10 @@ export default function FAQPage({ onClose }) {
 
   return (
     <Window title="FAQ" onClose={onClose}>
-      <div className={styles.faqContent}>
-        <h2 className={styles.faqTitle}>FAQ</h2>
+      <main className="windowContent">
+        <h1 className={styles.faqTitle}>FAQ</h1>
         <FAQList faqs={faqs} />
-      </div>
+      </main>
     </Window>
   );
 }

@@ -1,0 +1,28 @@
+.aboutContent {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: var(--page-padding-vertical) var(--page-padding-horizontal);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.aboutContent ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 1.5rem 0;
+  width: 100%;
+  max-width: var(--page-list-max-width);
+  color: var(--page-paragraph-color);
+  font-size: var(--page-list-size);
+}
+
+.aboutContent ul li {
+  margin-bottom: var(--page-list-gap);
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

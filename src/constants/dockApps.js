@@ -4,7 +4,7 @@ import FAQIcon from "../icons/FAQIcon";
 import ContactIcon from "../icons/ContactIcon";
 import TerminalIcon from "../icons/TerminalIcon";
 import NotepadIcon from "../icons/NotepadIcon";
-import About from "../pages/About";
+import About from "../pages/About/About";
 import Projects from "../pages/Projects/Projects";
 import FAQ from "../pages/FAQ/FAQ";
 import Terminal from "../pages/Terminal/Terminal"
