@@ -13,6 +13,7 @@ Explore my projects, FAQ, and contact info in a playful, interactive desktop-lik
 - **Framer Motion** — Smooth, modern animations for window transitions
 - **SVGR** — SVGs as React components for icons
 - **Netlify** — Simple, fast deployment
+- **Storybook** — Visual documentation and isolated component development
 
 ---
 
@@ -40,6 +41,9 @@ Explore my projects, FAQ, and contact info in a playful, interactive desktop-lik
 
 - **Single Source of Truth for Icons:**  
   - All icons are managed via an `iconList` for consistency and easy updates.
+
+- **Component Documentation with Storybook:**
+  - Components are visually testable in Storybook, making the codebase easy to understand and extend
 
 ---
 
