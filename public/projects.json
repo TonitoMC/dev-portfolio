@@ -24,6 +24,12 @@
     "url": "https://github.com/TonitoMC/backend-only"
   },
   {
+    "title": "React Calculator",
+    "description": "A simple robust calculator built with React, Vite and Bun. Features extensive testing & linting",
+    "learned": "Frontend testing, linting & React basics.",
+    "url": "https://github.com/TonitoMC/react-calculator"
+  },
+  {
     "title": "This Portfolio",
     "description": "A Unix-inspired, tiling window manager portfolio built with React, Vite, Bun, and custom CSS. Features a terminal, dock, and dynamic pages.",
     "learned": "Frontend architecture, advanced CSS, Framer Motion, and building a component-driven design system.",
