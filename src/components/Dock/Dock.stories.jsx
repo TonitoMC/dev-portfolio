@@ -1,15 +1,31 @@
 import Dock from "./Dock"
+import { iconList } from "@constants/iconList"
 
 const apps = [
   {
-    key: "terminal",
-    label: "Terminal",
-    iconPath: "/images/terminal.svg",
+    key: "about",
+    label: "About",
+    icon: iconList.about,
   },
   {
-    key: "notepad",
-    label: "Notepad",
-    iconPath: "/images/notepad.svg",
+    key: "projects",
+    label: "Projects",
+    icon: iconList.projects,
+  },
+  {
+    key: "faq",
+    label: "FAQ",
+    icon: iconList.faq,
+  },
+  {
+    key: "contact",
+    label: "Contact",
+    icon: iconList.contact,
+  },
+  {
+    key: "terminal",
+    label: "Terminal",
+    icon: iconList.terminal,
   },
 ]
 
@@ -22,7 +38,7 @@ export default {
         style={{
           minHeight: "100vh",
           display: "flex",
-          alignItems: "flex-end",
+          alignItems: "center",
           justifyContent: "center",
           background: "var(--nord0, #222)",
         }}
@@ -33,4 +49,4 @@ export default {
   ],
 }
 
-export const Default = () => <Dock apps={apps} onAppSelect={(app) => alert(`Clicked: ${app.label}`)} />
+export const Default = () => <Dock apps={apps} onAppSelect={(key) => alert(`Clicked: ${key}`)} />
