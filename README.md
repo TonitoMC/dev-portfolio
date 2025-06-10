@@ -1,12 +1,74 @@
-# React + Vite
+# My Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Unix-inspired, tiling window manager portfolio built with React, Vite and Bun.  
+Explore my projects, FAQ, and contact info in a playful, interactive desktop-like environment publicly hosted [here](https://jose-merida.netlify.app)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Technologies Used
 
-## Expanding the ESLint configuration
+- **React** — Component-driven UI
+- **Vite** — Lightning-fast build tool and dev server
+- **Bun** — Modern JS runtime and package manager
+- **Framer Motion** — Smooth, modern animations for window transitions
+- **SVGR** — SVGs as React components for icons
+- **Netlify** — Simple, fast deployment
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ✨ Features
+
+- **Tiling Window Manager UI:**  
+  Open, close, and tile multiple pages (About, Projects, FAQ, Contact, Terminal) just like a real WM.  
+  Master-stack layout with smooth transitions.
+
+- **Terminal Emulator:**  
+  - Supports `ls`, `cd`, `cat`, and `help` commands.
+  - Virtual filesystem with dynamic files:  
+    - `about.txt`
+    - `projects/ProjectName.txt`  
+    - `faq/faq.txt`
+    - `contact/email.txt`, `contact/github.txt`
+  - Clickable links in terminal output.
+
+- **Dock & TopBar:**  
+  - Dock for launching apps, styled like a real desktop.
+  - TopBar with dynamic icons, popovers, and system info.
+
+- **Data-Driven:**  
+  - Projects, FAQ, and contact info are loaded from JSON files in `/public` for easy updates without redeploying.
+
+- **Single Source of Truth for Icons:**  
+  - All icons are managed via an `iconList` for consistency and easy updates.
+
+---
+
+## 🛠️ Design
+
+- **Component-Driven:**  
+  Every UI element is a reusable, modular React component, making the codebase easy to maintain and extend.
+
+- **Global CSS Variables:**  
+  Colors, spacing, and typography are managed with CSS variables for consistent theming and easy tweaks.
+
+- **Semantic HTML:**  
+  Uses `<main>`, `<section>`, `<article>`, `<nav>`, and `<button>` for accessibility and SEO.
+
+- **Animations with Framer Motion:**  
+  All window transitions and popovers use Framer Motion for a modern, smooth feel.
+
+---
+
+## 🖥️ How to Run Locally
+
+```bash
+bun install
+bun run dev
+```
+or with npm/yarn:
+```bash
+npm install
+npm run dev
+```
+
+---
