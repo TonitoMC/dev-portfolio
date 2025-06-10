@@ -61,6 +61,15 @@ Explore my projects, FAQ, and contact info in a playful, interactive desktop-lik
 - **Animations with Framer Motion:**  
   All window transitions and popovers use Framer Motion for a modern, smooth feel.
 
+- **Linting and Formatting:**  
+  ESLint and Prettier are used to enforce code quality, consistent style, and catch errors early.
+
+- **PropTypes for Prop Validation:**  
+  All components use PropTypes for runtime prop validation and self-documentation.
+
+- **Consistent Project Structure:**  
+  The codebase is organized into clear folders for components, hooks, constants, pages, and styles, making it easy to navigate and scale.
+
 ---
 
 ## 🖥️ How to Run Locally
