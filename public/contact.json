@@ -1,0 +1,14 @@
+[
+  {
+    "icon": "email",
+    "label": "Email",
+    "value": "joseameridac@gmail.com",
+    "href": "mailto:joseameridac@gmail.com"
+  },
+  {
+    "icon": "github",
+    "label": "GitHub",
+    "value": "github.com/tonitomc",
+    "href": "https://github.com/tonitomc"
+  }
+]

@@ -1,23 +1,23 @@
-import { useEffect, useState } from "react";
-import Window from "../../components/Window/Window";
-import ProjectList from "../../components/ProjectList/ProjectList";
-import styles from "./Projects.module.css";
+import { useEffect, useState } from "react"
+import Window from "@components/Window/Window"
+import ProjectList from "@components/ProjectList/ProjectList"
+import PropTypes from "prop-types"
 
 export default function Projects({ onClose }) {
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState([])
 
   useEffect(() => {
     fetch("/projects.json")
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         setProjects(
-          data.map(project => ({
+          data.map((project) => ({
             ...project,
             onClick: () => window.open(project.url, "_blank"),
           }))
-        );
-      });
-  }, []);
+        )
+      })
+  }, [])
 
   return (
     <Window title="Projects" onClose={onClose}>
@@ -26,5 +26,9 @@ export default function Projects({ onClose }) {
         <ProjectList projects={projects} />
       </main>
     </Window>
-  );
+  )
+}
+
+Projects.propTypes = {
+  onClose: PropTypes.func.isRequired,
 }

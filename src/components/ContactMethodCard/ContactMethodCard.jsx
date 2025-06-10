@@ -1,26 +1,36 @@
-import styles from "./ContactMethodCard.module.css";
+import styles from "./ContactMethodCard.module.css"
+import PropTypes from "prop-types"
+import { iconList } from "@constants/iconList"
+
+const ArrowIcon = iconList.arrow
 
 export default function ContactMethodCard({ icon, label, value, href }) {
   return (
     <a
-      className={styles.card}
+      className={`card ${styles.contactCard}`}
       href={href}
       target="_blank"
       rel="noopener noreferrer"
       tabIndex={0}
+      onClick={(e) => {
+        e.currentTarget.blur()
+      }}
     >
       <span className={styles.icon}>{icon}</span>
       <div className={styles.info}>
-        <span className={styles.label}>{label}</span>
-        <span className={styles.value}>{value}</span>
+        <h3 className={styles.label}>{label}</h3>
+        <p className={styles.value}>{value}</p>
       </div>
-      <span className={styles.arrow} aria-hidden>
-        {/* Diagonal arrow, modern style */}
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">
-          <polyline points="8 8 16 8 16 16" />
-          <line x1="8" y1="16" x2="16" y2="8" />
-        </svg>
+      <span className={`arrow ${styles.arrow}`} aria-hidden>
+        <ArrowIcon />
       </span>
     </a>
-  );
+  )
+}
+
+ContactMethodCard.propTypes = {
+  icon: PropTypes.node.isRequired, // Icon as React Component
+  label: PropTypes.string.isRequired, // Label / subtitle eg. Email
+  value: PropTypes.string.isRequired, // Value / link / description
+  href: PropTypes.string.isRequired, // Link for redirect
 }

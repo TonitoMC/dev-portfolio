@@ -1,42 +1,39 @@
-import styles from "./ProjectCard.module.css";
+import PropTypes from "prop-types"
+import styles from "./ProjectCard.module.css"
+import { iconList } from "@constants/iconList"
+const ArrowIcon = iconList.arrow
 
-function DiagonalArrow(props) {
-  // ↗ SVG (upper right arrow)
+function ProjectCard({ title, description, learned, onClick }) {
   return (
-    <svg
-      className={styles.arrow}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      {...props}
+    <article
+      className={`card ${styles.projectCard}`}
+      tabIndex={0}
+      onClick={(e) => {
+        onClick?.(e)
+        e.currentTarget.blur()
+      }}
+      role="button"
+      aria-label={`Open project: ${title}`}
     >
-      <polyline points="7 17 17 7" />
-      <polyline points="7 7 17 7 17 17" />
-    </svg>
-  );
+      <header className={styles.header}>
+        <h2 className={styles.title}>{title}</h2>
+        <span className={styles.arrowWrapper}>
+          <ArrowIcon className="arrow" />
+        </span>
+      </header>
+      <p className={styles.description}>{description}</p>
+      <p className={styles.learned}>
+        <strong>What I learned:</strong> {learned}
+      </p>
+    </article>
+  )
 }
 
-export default function ProjectCard({
-  title,
-  description,
-  learned,
-  onClick,
-  // techLogos = [], // for future use
-}) {
-  return (
-    <div className={styles.card} tabIndex={0} onClick={onClick}>
-      <div className={styles.header}>
-        <span className={styles.title}>{title}</span>
-        <DiagonalArrow />
-      </div>
-      <div className={styles.description}>{description}</div>
-      <div className={styles.learned}>What I learned: {learned}</div>
-      {/* <div className={styles.techList}>
-        {techLogos.map((logo, i) => (
-          <img key={i} src={logo} alt="" height={28} />
-        ))}
-      </div> */}
-    </div>
-  );
+ProjectCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  learned: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
 }
+
+export default ProjectCard

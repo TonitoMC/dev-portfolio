@@ -1,17 +1,27 @@
-import TopBar from "../TopBar/TopBar";
-import Dock from "../Dock/Dock";
-import styles from "./Layout.module.css";
+import PropTypes from "prop-types"
+import TopBar from "@components/TopBar/TopBar"
+import Dock from "@components/Dock/Dock"
+import styles from "./Layout.module.css"
 
-export default function Layout({ children, dockApps, onAppSelect }) {
+function Layout({ children, dockApps, onAppSelect, topBarElements }) {
   return (
     <div className={styles.layout}>
       <header className={styles.header}>
-        <TopBar />
+        <TopBar elements={topBarElements} />
       </header>
       <main className={styles.mainContent}>{children}</main>
       <footer className={styles.footer}>
         <Dock apps={dockApps} onAppSelect={onAppSelect} />
       </footer>
     </div>
-  );
+  )
 }
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired, // Main content
+  dockApps: PropTypes.array.isRequired, // Applications for the dock
+  onAppSelect: PropTypes.func.isRequired, // Action on app selection to pass onto dock
+  topBarElements: PropTypes.array.isRequired, // Elements for the top bar
+}
+
+export default Layout

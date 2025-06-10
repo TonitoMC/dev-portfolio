@@ -1,18 +1,14 @@
-import { useRef, useState } from "react";
-import styles from "./TopBar.module.css";
-import GitHubIcon from "../../icons/GithubIcon";
-import TopBarElement from "../TopBarElement/TopBarElement";
-import WifiIcon from "../../icons/WifiIcon";
-import VolumeIcon from "../../icons/VolumeIcon";
-import BatteryIcon from "../../icons/BatteryIcon";
-import SettingsIcon from "../../icons/SettingsIcon";
-import CalendarIcon from "../../icons/CalendarIcon";
+import PropTypes from "prop-types"
+import TopBarElement from "@components/TopBarElement/TopBarElement"
+import { iconList } from "@constants/iconList"
+import styles from "./TopBar.module.css"
 
-import EmailIcon from "../../icons/EmailIcon";
+const WifiIcon = iconList.wifi
+const VolumeIcon = iconList.volume
+const BatteryIcon = iconList.battery
+const SettingsIcon = iconList.settings
 
-function TopBar() {
-  const time = "15:37";
-
+function TopBar({ elements }) {
   return (
     <div className={styles.topBar}>
       <div className={styles.leftSection}>
@@ -23,41 +19,31 @@ function TopBar() {
         <span className={styles.branch}>B.Sc. Computer Science</span>
       </div>
       <div className={styles.rightSection}>
-        <TopBarElement
-          icon={<GitHubIcon className={styles.icon} />}
-          link="https://github.com/yourusername"
-          ariaLabel="GitHub"
-          description="Here's all my GitHub projects!"
-          linkLabel="github.com/yourusername"
-        />
-        <TopBarElement
-          icon={<EmailIcon className={styles.icon} />}
-          link="mailto:your@email.com"
-          ariaLabel="Email"
-          description="Email me anytime!"
-          linkLabel="your@email.com"
-        />
+        {elements.map((app) => {
+          const Icon = app.icon
+          return (
+            <TopBarElement
+              key={app.key}
+              icon={Icon ? <Icon className={styles.icon} /> : null}
+              ariaLabel={app.ariaLabel}
+              description={app.description}
+              link={app.link}
+              linkLabel={app.linkLabel}
+            />
+          )
+        })}
         <div className={styles.divider} />
-        <TopBarElement
-          icon={<WifiIcon className={styles.icon} />}
-          ariaLabel="WiFi"
-        />
-        <TopBarElement
-          icon={<VolumeIcon className={styles.icon} />}
-          ariaLabel="Volume"
-        />
-        <TopBarElement
-          icon={<BatteryIcon className={styles.icon} />}
-          ariaLabel="Battery"
-        />
-        <TopBarElement
-          icon={<SettingsIcon className={styles.icon} />}
-          ariaLabel="Settings"
-        />
-
+        <WifiIcon className={styles.icon} />
+        <VolumeIcon className={styles.icon} />
+        <BatteryIcon className={styles.icon} />
+        <SettingsIcon className={styles.icon} />
       </div>
     </div>
-  );
+  )
 }
 
-export default TopBar;
+TopBar.propTypes = {
+  elements: PropTypes.arrayOf(PropTypes.shape(TopBarElement.propTypes)).isRequired,
+}
+
+export default TopBar

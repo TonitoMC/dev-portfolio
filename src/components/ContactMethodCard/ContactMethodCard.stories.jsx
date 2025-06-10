@@ -1,4 +1,4 @@
-import ContactMethodCard from "./ContactMethodCard";
+import ContactMethodCard from "./ContactMethodCard"
 
 // Example SVG icon (you can use your own)
 const MailIcon = (
@@ -6,24 +6,24 @@ const MailIcon = (
     <rect x="3" y="5" width="18" height="14" rx="2" />
     <polyline points="3 7 12 13 21 7" />
   </svg>
-);
+)
 
 export default {
   title: "Components/ContactMethodCard",
   component: ContactMethodCard,
-};
+}
 
-const Template = (args) => <ContactMethodCard {...args} />;
+const Template = (args) => <ContactMethodCard {...args} />
 
-export const Email = Template.bind({});
+export const Email = Template.bind({})
 Email.args = {
   icon: MailIcon,
   label: "Email",
   value: "your@email.com",
   href: "mailto:your@email.com",
-};
+}
 
-export const GitHub = Template.bind({});
+export const GitHub = Template.bind({})
 GitHub.args = {
   icon: (
     <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
@@ -33,4 +33,4 @@ GitHub.args = {
   label: "GitHub",
   value: "github.com/yourusername",
   href: "https://github.com/yourusername",
-};
+}

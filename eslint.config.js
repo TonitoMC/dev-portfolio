@@ -1,33 +1,36 @@
-// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
-import storybook from "eslint-plugin-storybook";
+import js from "@eslint/js"
+import globals from "globals"
+import pluginReact from "eslint-plugin-react"
+import eslintConfigPrettier from "eslint-config-prettier"
+import { defineConfig } from "eslint/config"
 
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-
-export default [{ ignores: ['dist'] }, {
-  files: ['**/*.{js,jsx}'],
-  languageOptions: {
-    ecmaVersion: 2020,
-    globals: globals.browser,
-    parserOptions: {
-      ecmaVersion: 'latest',
-      ecmaFeatures: { jsx: true },
-      sourceType: 'module',
+export default defineConfig([
+  {
+    ignores: ["dist/**", "build/**", "node_modules/**"],
+  },
+  {
+    files: ["**/*.{js,mjs,cjs,jsx}"],
+    plugins: { js, react: pluginReact },
+    extends: ["js/recommended"],
+    languageOptions: {
+      globals: globals.browser,
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+    },
+    rules: {
+      "react/react-in-jsx-scope": "off",
+      "react/prop-types": "off",
+    },
+    settings: {
+      react: {
+        version: "detect",
+      },
     },
   },
-  plugins: {
-    'react-hooks': reactHooks,
-    'react-refresh': reactRefresh,
-  },
-  rules: {
-    ...js.configs.recommended.rules,
-    ...reactHooks.configs.recommended.rules,
-    'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
-  },
-}, ...storybook.configs["flat/recommended"]];
+  pluginReact.configs.flat.recommended,
+  pluginReact.configs.flat["jsx-runtime"],
+  eslintConfigPrettier,
+])

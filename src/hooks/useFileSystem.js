@@ -1,105 +1,101 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react"
 
-const ABOUT_TXT = "I'm Jose, a Computer Scientist and developer...";
-const CONTACT_TXT = "Email: your@email.com";
+const ABOUT_TXT =
+  "I'm Jose, a developer based in Guatemala who loves building software to solve real-world problems. I specialize in Go for backend (Echo, Gin, stdlib), React and vanilla JS for frontend, and I enjoy ricing my Arch Linux setup. I'm passionate about creative UI/UX, learning new tech, and always experimenting with new tools. When I'm not coding, I listen to metal, play shooters, and read books. Explore the site using the dock or terminal!"
 
-function buildFS(notes, projects, faq) {
+function buildFS(projects, faq, contact) {
   return {
     "about.txt": ABOUT_TXT,
-    notes: { ...notes },
     projects: { ...projects },
     faq: { ...faq },
-    contact: { "contact.txt": CONTACT_TXT }
-  };
-}
-
-function loadNotes() {
-  try {
-    return JSON.parse(localStorage.getItem("portfolioNotes")) || {};
-  } catch {
-    return {};
+    contact: { ...contact },
   }
 }
 
-function saveNotes(notes) {
-  localStorage.setItem("portfolioNotes", JSON.stringify(notes));
-}
-
 export default function useFileSystem() {
-  const [notes, setNotes] = useState(loadNotes);
-  const [projects, setProjects] = useState({});
-  const [faq, setFaq] = useState({});
+  const [projects, setProjects] = useState({})
+  const [faq, setFaq] = useState({})
+  const [contact, setContact] = useState({})
 
-  // Fetch projects and faq on every mount
+  // Fetch projects, faq, and contact on mount
   useEffect(() => {
     fetch("/projects.json")
-      .then(res => res.json())
-      .then(data => {
-        const projFiles = {};
+      .then((res) => res.json())
+      .then((data) => {
+        const projFiles = {}
         data.forEach((project) => {
-          const fileName = (project.title || "Untitled")
-            .replace(/\s+/g, "") // Remove spaces
-            .replace(/[^a-zA-Z0-9]/g, "") // Remove non-alphanum
-            + ".txt";
+          const fileName = (project.title || "Untitled").replace(/\s+/g, "").replace(/[^a-zA-Z0-9]/g, "") + ".txt"
           const content = [
-            `Title: ${project.title}`,
-            `Description: ${project.description}`,
+            project.title,
+            "",
+            project.description,
+            "",
             project.learned ? `What I learned: ${project.learned}` : "",
-            project.url ? `URL: ${project.url}` : ""
-          ].filter(Boolean).join("\n\n");
-          projFiles[fileName] = content;
-        });
-        setProjects(projFiles);
-      });
+            project.url ? project.url : "",
+          ]
+            .filter(Boolean)
+            .join("\n")
+          projFiles[fileName] = content
+        })
+        setProjects(projFiles)
+      })
 
     fetch("/faq.json")
-      .then(res => res.json())
-      .then(data => {
-        const faqFiles = {};
-        data.forEach((f, i) => {
-          faqFiles[`faq${i + 1}.txt`] = `Q: ${f.question}\nA: ${f.answer}\n`;
-        });
-        setFaq(faqFiles);
-      });
-  }, []);
-
-  // Notes helpers
-  const setNote = useCallback((file, content) => {
-    const newNotes = { ...notes, [file]: content };
-    setNotes(newNotes);
-    saveNotes(newNotes);
-  }, [notes]);
+      .then((res) => res.json())
+      .then((data) => {
+        const text = data.map((f) => `Q: ${f.question}\nA: ${f.answer}\n`).join("\n")
+        setFaq({ "faq.txt": text })
+      })
+    fetch("/contact.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const contactFiles = {}
+        data.forEach((item) => {
+          if (item.icon === "email") {
+            contactFiles["email.txt"] = item.href // just the mailto link
+          }
+          if (item.icon === "github") {
+            contactFiles["github.txt"] = item.href // just the URL
+          }
+        })
+        setContact(contactFiles)
+      })
+  }, [])
 
   // Build the virtual FS tree on every render
-  const fs = buildFS(notes, projects, faq);
+  const fs = buildFS(projects, faq, contact)
 
   // Get node by path array
-  const getNode = useCallback((pathArr) => {
-    return pathArr.reduce((node, part) => (node && node[part] !== undefined ? node[part] : null), fs);
-  }, [fs]);
+  const getNode = useCallback(
+    (pathArr) => {
+      return pathArr.reduce((node, part) => (node && node[part] !== undefined ? node[part] : null), fs)
+    },
+    [fs]
+  )
 
-  // Set file content (only for notes)
-  const setFile = useCallback((pathArr, content) => {
-    if (pathArr[0] === "notes" && pathArr.length === 2) {
-      setNote(pathArr[1], content);
-    }
-    // else: ignore, only notes are editable
-  }, [setNote]);
+  // Set file content (no-op, since no notes)
+  const setFile = useCallback(() => {}, [])
 
   // List directory
-  const listDir = useCallback((pathArr) => {
-    const node = getNode(pathArr);
-    if (node && typeof node === "object") {
-      return Object.keys(node);
-    }
-    return [];
-  }, [getNode]);
+  const listDir = useCallback(
+    (pathArr) => {
+      const node = getNode(pathArr)
+      if (node && typeof node === "object") {
+        return Object.keys(node)
+      }
+      return []
+    },
+    [getNode]
+  )
 
   // Read file
-  const readFile = useCallback((pathArr) => {
-    const node = getNode(pathArr);
-    return typeof node === "string" ? node : null;
-  }, [getNode]);
+  const readFile = useCallback(
+    (pathArr) => {
+      const node = getNode(pathArr)
+      return typeof node === "string" ? node : null
+    },
+    [getNode]
+  )
 
-  return { fs, getNode, setFile, listDir, readFile };
+  return { fs, getNode, setFile, listDir, readFile }
 }

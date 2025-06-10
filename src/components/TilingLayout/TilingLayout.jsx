@@ -1,11 +1,12 @@
-import { motion, AnimatePresence } from "framer-motion";
-import styles from "./TilingLayout.module.css";
+import PropTypes from "prop-types"
+import { motion, AnimatePresence } from "framer-motion"
+import styles from "./TilingLayout.module.css"
 
 export default function TilingLayout({ children, pageKeys = [] }) {
-  const childrenArray = Array.isArray(children) ? children : [children];
-  const count = childrenArray.length;
+  const childrenArray = Array.isArray(children) ? children : [children]
+  const count = childrenArray.length
 
-  // Always render the wrapper, animate the window in/out
+  // Single window case
   if (count <= 1) {
     return (
       <motion.div className={styles.singleWrapper} layout style={{ height: "100%", minHeight: 0 }}>
@@ -16,9 +17,9 @@ export default function TilingLayout({ children, pageKeys = [] }) {
               key={pageKeys[0] ?? 0}
               layout
               style={{ height: "100%", minHeight: 0 }}
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 24 }}
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.96 }}
               transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
             >
               {childrenArray[0]}
@@ -26,21 +27,26 @@ export default function TilingLayout({ children, pageKeys = [] }) {
           )}
         </AnimatePresence>
       </motion.div>
-    );
+    )
   }
 
   // Master-stack layout for 2+ windows
   return (
     <motion.div className={styles.masterStackLayout} layout style={{ height: "100%", minHeight: 0 }}>
-      <motion.div
-        className={styles.masterWindow}
-        layout
-        key={pageKeys[0] ?? 0}
-        style={{ height: "100%", minHeight: 0 }}
-        transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
-      >
-        {childrenArray[0]}
-      </motion.div>
+      <AnimatePresence mode="popLayout">
+        <motion.div
+          className={styles.masterWindow}
+          layout
+          key={pageKeys[0] ?? 0}
+          style={{ height: "100%", minHeight: 0 }}
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.96 }}
+          transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
+        >
+          {childrenArray[0]}
+        </motion.div>
+      </AnimatePresence>
       <motion.div className={styles.stackColumn} layout style={{ height: "100%", minHeight: 0 }}>
         <AnimatePresence mode="popLayout">
           {childrenArray.slice(1).map((child, i) => (
@@ -60,5 +66,10 @@ export default function TilingLayout({ children, pageKeys = [] }) {
         </AnimatePresence>
       </motion.div>
     </motion.div>
-  );
+  )
+}
+
+TilingLayout.propTypes = {
+  children: PropTypes.node,
+  pageKeys: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
 }

@@ -1,0 +1,50 @@
+:root {
+  --page-title-color: var(--nord8);
+  --page-title-size: 1.5rem;
+  --page-title-weight: 700;
+  --page-title-spacing: 0.03em;
+  --page-title-margin-bottom: 1.2rem;
+
+  --page-subtitle-color: var(--nord7);
+  --page-subtitle-size: 1.2rem;
+  --page-subtitle-weight: 600;
+  --page-subtitle-spacing: 0.02em;
+  --page-subtitle-margin-bottom: 0.5rem;
+
+  --page-paragraph-size: 1.05rem;
+  --page-paragraph-color: var(--nord4);
+  --page-paragraph-margin-bottom: 1.2rem;
+}
+
+h1 {
+  color: var(--page-title-color);
+  font-size: var(--page-title-size);
+  font-weight: var(--page-title-weight);
+  margin-bottom: var(--page-title-margin-bottom);
+  letter-spacing: var(--page-title-spacing);
+  text-align: center;
+}
+
+h2 {
+  color: var(--page-subtitle-color);
+  font-size: var(--page-subtitle-size);
+  font-weight: var(--page-subtitle-weight);
+  margin-bottom: var(--page-subtitle-margin-bottom);
+  letter-spacing: var(--page-subtitle-spacing);
+  text-align: left;
+}
+
+h3 {
+  color: var(--nord7);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+
+p {
+  font-size: var(--page-paragraph-size);
+  color: var(--page-paragraph-color);
+  margin-bottom: var(--page-paragraph-margin-bottom);
+  text-align: left;
+}

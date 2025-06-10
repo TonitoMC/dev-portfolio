@@ -1,4 +1,4 @@
-.card {
+.faqCard {
   background: var(--nord1);
   border-radius: 1rem;
   border: 1px solid var(--nord3);
@@ -10,8 +10,8 @@
   margin: 0;
 }
 
-.card:hover,
-.card.open {
+.faqCard:hover,
+.faqCard.open {
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
   border-color: var(--nord8);
 }
@@ -51,10 +51,11 @@
   flex-shrink: 0;
   stroke-linecap: round;
   stroke-linejoin: round;
+  transform: rotate(45deg);
 }
 
-.open .arrow {
-  transform: rotate(90deg) scale(1.15); /* Rotates right arrow to down */
+.arrowOpen {
+  transform: rotate(135deg) scale(1.15);
   color: var(--nord8);
 }
 
@@ -71,10 +72,9 @@
 }
 
 .answer {
-  padding: 1.1rem 1.5rem 1.3rem 2.2rem;
   color: var(--nord4);
-  font-size: 1rem;
+  padding: 1rem;
   line-height: 1.7;
-  background: var(--nord2);
+  text-align: justify;
   border-radius: 0 0 1rem 1rem;
 }

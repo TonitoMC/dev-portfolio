@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback } from "react"
 
 /**
  * useDisplayedPages
@@ -6,34 +6,21 @@ import { useState, useCallback } from "react";
  * @returns [displayedPages, openPage, closePage, togglePage, setDisplayedPages]
  */
 export default function useDisplayedPages(initialPages = []) {
-  const [displayedPages, setDisplayedPages] = useState(initialPages);
-
-  const openPage = useCallback(
-    (page) => {
-      setDisplayedPages((prev) =>
-        prev.includes(page) ? prev : [...prev, page]
-      );
-    },
-    [setDisplayedPages]
-  );
+  const [displayedPages, setDisplayedPages] = useState(initialPages)
 
   const closePage = useCallback(
     (page) => {
-      setDisplayedPages((prev) => prev.filter((p) => p !== page));
+      setDisplayedPages((prev) => prev.filter((p) => p !== page))
     },
     [setDisplayedPages]
-  );
+  )
 
   const togglePage = useCallback(
     (page) => {
-      setDisplayedPages((prev) =>
-        prev.includes(page)
-          ? prev.filter((p) => p !== page)
-          : [...prev, page]
-      );
+      setDisplayedPages((prev) => (prev.includes(page) ? prev.filter((p) => p !== page) : [...prev, page]))
     },
     [setDisplayedPages]
-  );
+  )
 
-  return [displayedPages, openPage, closePage, togglePage, setDisplayedPages];
+  return [displayedPages, closePage, togglePage, setDisplayedPages]
 }

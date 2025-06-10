@@ -1,0 +1,46 @@
+:root {
+  --page-padding-vertical: clamp(1rem, 4vw, 2.5rem);
+  --page-padding-horizontal: clamp(1rem, 5vw, 2.75rem);
+  --page-padding-top: clamp(0.5rem, 2vw, 1.2rem); /* Less than vertical */
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: "JetBrains Mono", "Fira Mono", "Menlo", "Consolas", "Liberation Mono", monospace;
+  background-color: var(--nord0);
+  color: var(--nord4);
+}
+
+main {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+}
+
+.windowContent {
+  height: 100%;
+  width: 100%;
+  color: var(--content-color, var(--nord4));
+  box-sizing: border-box;
+  padding: var(--page-padding-vertical) var(--page-padding-horizontal);
+  padding-top: var(--page-padding-top);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  scrollbar-gutter: stable both-edges;
+}

@@ -1,5 +1,6 @@
-import ProjectCard from "../ProjectCard/ProjectCard";
-import styles from "./ProjectList.module.css";
+import PropTypes from "prop-types"
+import ProjectCard from "@components/ProjectCard/ProjectCard"
+import styles from "./ProjectList.module.css"
 
 function ProjectList({ projects }) {
   return (
@@ -8,7 +9,12 @@ function ProjectList({ projects }) {
         <ProjectCard key={i} {...project} />
       ))}
     </div>
-  );
+  )
 }
 
-export default ProjectList;
+// Array of ProjectCard props
+ProjectList.propTypes = {
+  projects: PropTypes.arrayOf(PropTypes.shape(ProjectCard.propTypes)).isRequired,
+}
+
+export default ProjectList

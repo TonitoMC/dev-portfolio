@@ -22,5 +22,11 @@
     "description": "A REST API for giving functionality to an already existing frontend",
     "learned": "Backend development, REST API documentation & Docker for application deployment",
     "url": "https://github.com/TonitoMC/backend-only"
+  },
+  {
+    "title": "This Portfolio",
+    "description": "A Unix-inspired, tiling window manager portfolio built with React, Vite, Bun, and custom CSS. Features a terminal, dock, and dynamic pages.",
+    "learned": "Frontend architecture, advanced CSS, Framer Motion, and building a component-driven design system.",
+    "url": "https://github.com/TonitoMC/dev-portfolio"
   }
 ]

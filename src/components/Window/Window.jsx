@@ -1,31 +1,33 @@
-import styles from "./Window.module.css";
+import PropTypes from "prop-types"
+import styles from "./Window.module.css"
 
 function Window({ children, onClose }) {
   return (
-    <div className={styles.window}>
-      <div className={styles.windowBar}>
+    <section className={styles.window}>
+      <nav className={styles.windowBar}>
         <div className={styles.windowButtons}>
-          <span
+          <button
             className={`${styles.dot} ${styles.close}`}
-            style={{ background: "var(--nord11)" }}
             onClick={onClose}
             title="Close"
             tabIndex={0}
-            onKeyDown={e => {
-              if ((e.key === "Enter" || e.key === " ") && onClose) onClose();
+            onKeyDown={(e) => {
+              if ((e.key === "Enter" || e.key === " ") && onClose) onClose()
             }}
-            role="button"
             aria-label="Close window"
           />
-          <span className={styles.dot} style={{ background: "var(--nord13)" }} />
-          <span className={styles.dot} style={{ background: "var(--nord14)" }} />
+          <span className={`${styles.dot} ${styles.minimize}`} />
+          <span className={`${styles.dot} ${styles.maximize}`} />
         </div>
-      </div>
-      <div className={styles.content}>
-        {children}
-      </div>
-    </div>
-  );
+      </nav>
+      <main className={styles.content}>{children}</main>
+    </section>
+  )
 }
 
-export default Window;
+Window.propTypes = {
+  children: PropTypes.node.isRequired,
+  onClose: PropTypes.func.isRequired,
+}
+
+export default Window

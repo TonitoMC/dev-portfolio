@@ -14,7 +14,7 @@
   max-width: 100%;
   height: auto;
   max-height: 100%;
-  overflow: visible; /* enables scrolling if content is too tall */
+  overflow: visible;
   height: 100%;
   width: 100%;
 }
@@ -55,6 +55,7 @@
 }
 
 .dot.close {
+  background: var(--nord11);
   cursor: pointer;
   box-shadow: 0 0 0 0px var(--nord11);
 }
@@ -66,7 +67,15 @@
     0 0 0 2px var(--nord11),
     0 2px 8px rgba(0, 0, 0, 0.1);
   outline: 2px solid var(--nord11);
-  transform: scale(1.15);
+  transform: scale(1.05);
+}
+
+.dot.minimize {
+  background: var(--nord13);
+}
+
+.dot.maximize {
+  background: var(--nord14);
 }
 
 .content {

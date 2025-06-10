@@ -1,9 +1,10 @@
-import FAQList from "./FAQList";
+import FAQList from "./FAQList"
 
 const faqs = [
   {
     question: "What technologies do you specialize in?",
-    answer: "I work primarily with React, TypeScript, Python, and modern CSS. I’m also comfortable with Node.js, Linux, and automation tools.",
+    answer:
+      "I work primarily with React, TypeScript, Python, and modern CSS. I’m also comfortable with Node.js, Linux, and automation tools.",
   },
   {
     question: "Are you open to freelance or contract work?",
@@ -21,11 +22,11 @@ const faqs = [
     question: "What’s your favorite project so far?",
     answer: "Probably my personal portfolio! It’s a playground for new ideas and tech.",
   },
-];
+]
 
 export default {
   title: "Components/FAQList",
   component: FAQList,
-};
+}
 
-export const Default = () => <FAQList faqs={faqs} />;
+export const Default = () => <FAQList faqs={faqs} />

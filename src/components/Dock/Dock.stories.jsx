@@ -1,4 +1,4 @@
-import Dock from "./Dock";
+import Dock from "./Dock"
 
 const apps = [
   {
@@ -11,7 +11,7 @@ const apps = [
     label: "Notepad",
     iconPath: "/images/notepad.svg",
   },
-];
+]
 
 export default {
   title: "Components/Dock",
@@ -31,11 +31,6 @@ export default {
       </div>
     ),
   ],
-};
+}
 
-export const Default = () => (
-  <Dock
-    apps={apps}
-    onAppSelect={(app, idx) => alert(`Clicked: ${app.label}`)}
-  />
-);
+export const Default = () => <Dock apps={apps} onAppSelect={(app) => alert(`Clicked: ${app.label}`)} />

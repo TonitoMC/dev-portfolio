@@ -1,26 +1,30 @@
-import { useRef, useState } from "react";
-import Window from "../../components/Window/Window";
-import useFileSystem from "../../hooks/useFileSystem";
-import runTerminalCommand from "../../hooks/runTerminalCommand";
-import TerminalHistory from "../../components/TerminalHistory/TerminalHistory";
-import TerminalInputLine from "../../components/TerminalInputLine/TerminalInputLine";
-import styles from "./Terminal.module.css";
+import { useRef, useState } from "react"
+import Window from "@components/Window/Window"
+import useFileSystem from "@hooks/useFileSystem"
+import runTerminalCommand from "@hooks/runTerminalCommand"
+import TerminalHistory from "@components/TerminalHistory/TerminalHistory"
+import TerminalInputLine from "@components/TerminalInputLine/TerminalInputLine"
+import styles from "./Terminal.module.css"
+import PropTypes from "prop-types"
 
-const USER = "jose";
-const HOST = "portfolio";
+const USER = "jose"
+const HOST = "portfolio"
 
 function parsePath(pathArr) {
-  return pathArr.length === 0 ? "~" : "~/" + pathArr.join("/");
+  return pathArr.length === 0 ? "~" : "~/" + pathArr.join("/")
 }
 
 export default function Terminal({ onClose }) {
-  const { getNode, setFile } = useFileSystem();
-  const [cwd, setCwd] = useState([]);
+  const { getNode, setFile } = useFileSystem()
+  const [cwd, setCwd] = useState([])
   const [history, setHistory] = useState([
-    { prompt: `${USER}@${HOST}:~$`, text: "Type 'help' for a list of commands." }
-  ]);
-  const [input, setInput] = useState("");
-  const inputRef = useRef();
+    {
+      prompt: `${USER}@${HOST}:~$`,
+      text: "Type 'help' for a list of commands.",
+    },
+  ])
+  const [input, setInput] = useState("")
+  const inputRef = useRef()
 
   const handleCommand = (cmd) => {
     const { output, newCwd } = runTerminalCommand(cmd, {
@@ -28,20 +32,20 @@ export default function Terminal({ onClose }) {
       setCwd,
       getNode,
       setFile,
-    });
-    if (newCwd !== undefined) setCwd(newCwd);
+    })
+    if (newCwd !== undefined) setCwd(newCwd)
     setHistory((prev) => [
       ...prev,
       { prompt: `${USER}@${HOST}:${parsePath(cwd)}$`, text: cmd },
-      ...(output ? [{ text: output }] : [])
-    ]);
-  };
+      ...(output ? [{ text: output }] : []),
+    ])
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    handleCommand(input);
-    setInput("");
-  };
+    e.preventDefault()
+    handleCommand(input)
+    setInput("")
+  }
 
   return (
     <Window title="Terminal" onClose={onClose}>
@@ -58,5 +62,9 @@ export default function Terminal({ onClose }) {
         />
       </div>
     </Window>
-  );
+  )
+}
+
+Terminal.propTypes = {
+  onClose: PropTypes.func.isRequired,
 }

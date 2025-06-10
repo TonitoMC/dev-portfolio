@@ -1,16 +1,17 @@
-import { useEffect, useState } from "react";
-import Window from "../../components/Window/Window";
-import FAQList from "../../components/FAQList/FAQList";
-import styles from "./FAQ.module.css";
+import { useEffect, useState } from "react"
+import Window from "@components/Window/Window"
+import FAQList from "@components/FAQList/FAQList"
+import styles from "./FAQ.module.css"
+import PropTypes from "prop-types"
 
 export default function FAQPage({ onClose }) {
-  const [faqs, setFaqs] = useState([]);
+  const [faqs, setFaqs] = useState([])
 
   useEffect(() => {
     fetch("/faq.json")
-      .then(res => res.json())
-      .then(setFaqs);
-  }, []);
+      .then((res) => res.json())
+      .then(setFaqs)
+  }, [])
 
   return (
     <Window title="FAQ" onClose={onClose}>
@@ -19,5 +20,9 @@ export default function FAQPage({ onClose }) {
         <FAQList faqs={faqs} />
       </main>
     </Window>
-  );
+  )
+}
+
+FAQPage.propTypes = {
+  onClose: PropTypes.func.isRequired,
 }
