@@ -6,4 +6,12 @@
   max-width: 700px;
   margin: 0 auto;
   padding: 1.5rem 0;
+  animation: fadeInList 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  padding-top: 0;
+}
+
+@keyframes fadeInList {
+  to {
+    opacity: 1;
+  }
 }

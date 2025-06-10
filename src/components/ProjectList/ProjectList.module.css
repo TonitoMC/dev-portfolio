@@ -5,4 +5,12 @@
   width: 100%;
   margin: 0 auto;
   padding-bottom: 2rem;
+  opacity: 0;
+  animation: fadeInList 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeInList {
+  to {
+    opacity: 1;
+  }
 }
