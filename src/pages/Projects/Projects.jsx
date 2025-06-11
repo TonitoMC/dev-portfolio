@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import Window from "@components/Window/Window"
-import ProjectList from "@components/ProjectList/ProjectList"
+import Window from "@components/Window"
+import ProjectList from "@components/ProjectList"
 import PropTypes from "prop-types"
 
 export default function Projects({ onClose }) {

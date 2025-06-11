@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import ProjectCard from "@components/ProjectCard/ProjectCard"
+import ProjectCard from "@components/ProjectCard"
 import styles from "./ProjectList.module.css"
 
 function ProjectList({ projects }) {

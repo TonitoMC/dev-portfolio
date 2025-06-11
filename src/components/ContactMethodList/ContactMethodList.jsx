@@ -1,4 +1,4 @@
-import ContactMethodCard from "@components/ContactMethodCard/ContactMethodCard"
+import ContactMethodCard from "@components/ContactMethodCard"
 import styles from "./ContactMethodList.module.css"
 import PropTypes from "prop-types"
 

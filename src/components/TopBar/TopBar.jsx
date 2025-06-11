@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import TopBarElement from "@components/TopBarElement/TopBarElement"
+import TopBarElement from "@components/TopBarElement"
 import { iconList } from "@constants/iconList"
 import styles from "./TopBar.module.css"
 

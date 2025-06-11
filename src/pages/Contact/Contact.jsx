@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import Window from "@components/Window/Window"
-import ContactMethodList from "@components/ContactMethodList/ContactMethodList"
+import Window from "@components/Window"
+import ContactMethodList from "@components/ContactMethodList"
 import PropTypes from "prop-types"
 import { iconList } from "@constants/iconList"
 

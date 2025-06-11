@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import { useRef, useState } from "react"
-import TopBarPopover from "@components/TopBarPopover/TopBarPopover"
+import TopBarPopover from "@components/TopBarPopover"
 import styles from "./TopBarElement.module.css"
 
 export default function TopBarElement({ icon, ariaLabel, description, link, linkLabel }) {

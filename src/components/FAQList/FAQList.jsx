@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import FAQCard from "@components/FAQCard/FAQCard"
+import FAQCard from "@components/FAQCard"
 import styles from "./FAQList.module.css"
 
 export default function FAQList({ faqs }) {

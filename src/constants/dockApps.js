@@ -1,9 +1,9 @@
 import { iconList } from "@constants/iconList"
-import About from "@pages/About/About"
-import Projects from "@pages/Projects/Projects"
-import FAQ from "@pages/FAQ/FAQ"
-import Terminal from "@pages/Terminal/Terminal"
-import Contact from "@pages/Contact/Contact"
+import About from "@pages/About"
+import Projects from "@pages/Projects"
+import FAQ from "@pages/FAQ"
+import Terminal from "@pages/Terminal"
+import Contact from "@pages/Contact"
 
 export const dockApps = [
   {

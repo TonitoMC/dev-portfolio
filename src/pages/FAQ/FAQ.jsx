@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import Window from "@components/Window/Window"
-import FAQList from "@components/FAQList/FAQList"
+import Window from "@components/Window"
+import FAQList from "@components/FAQList"
 import styles from "./FAQ.module.css"
 import PropTypes from "prop-types"
 

@@ -1,9 +1,9 @@
 import { useRef, useState } from "react"
-import Window from "@components/Window/Window"
+import Window from "@components/Window"
 import useFileSystem from "@hooks/useFileSystem"
 import runTerminalCommand from "@hooks/runTerminalCommand"
-import TerminalHistory from "@components/TerminalHistory/TerminalHistory"
-import TerminalInputLine from "@components/TerminalInputLine/TerminalInputLine"
+import TerminalHistory from "@components/TerminalHistory"
+import TerminalInputLine from "@components/TerminalInputLine"
 import styles from "./Terminal.module.css"
 import PropTypes from "prop-types"
 

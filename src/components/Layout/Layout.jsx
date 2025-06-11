@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
-import TopBar from "@components/TopBar/TopBar"
-import Dock from "@components/Dock/Dock"
+import TopBar from "@components/TopBar"
+import Dock from "@components/Dock"
 import styles from "./Layout.module.css"
 
 function Layout({ children, dockApps, onAppSelect, topBarElements }) {

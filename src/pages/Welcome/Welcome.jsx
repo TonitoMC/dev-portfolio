@@ -1,4 +1,4 @@
-import Window from "@components/Window/Window"
+import Window from "@components/Window"
 import styles from "./Welcome.module.css"
 import PropTypes from "prop-types"
 

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types"
-import Window from "@components/Window/Window"
+import Window from "@components/Window"
 import styles from "./About.module.css"
 
 export default function About({ onClose }) {
