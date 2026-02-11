@@ -1,63 +1,64 @@
-# My Developer Portfolio
+# 🐧 Custom-Riced Developer Portfolio
 
-A Unix-inspired, tiling window manager portfolio built with React, Vite, and Bun. 
-You can check out my projects, FAQ, and contact info in a playful desktop-like environment hosted [here](https://jose-merida.netlify.app).
+Welcome to my interactive developer portfolio! This isn't your standard vertical-scrolling site. I've built a **Unix-inspired, tiling window manager environment** right in the browser. It's a tribute to the "riced" Linux setups I love, blending heavy functionality with a clean, professional aesthetic.
 
----
-
-## 🚀 Technologies
-
-- **React** — Component-driven UI.
-- **Vite & Bun** — Modern toolchain for speed.
-- **Framer Motion** — Smooth window animations and transitions.
-- **SVGR** — Sharp vector icons as React components.
-- **Storybook** — Visual documentation for key UI components.
+Check out the live version here: **[jose-merida.netlify.app](https://jose-merida.netlify.app)**
 
 ---
 
-## ✨ Features
+## 🚀 The Vision
 
-- **Tiling Window Manager:**  
-  Open, close, and tile multiple apps. It features a master-stack layout that resizes smartly.
+I wanted to build something that reflects how I actually work. This portfolio simulates a desktop environment where you can open multiple apps, tile them to your liking, and interact with a functional system.
 
-- **Advanced Projects Explorer:**
-  - A "riced" Linux file manager experience.
-  - Hover over projects to see a quick preview and tech stack.
-  - Organized by category: Web, Data Science, and Databases.
-
-- **Interactive Terminal Emulator:**  
-  - Supports `ls`, `cd`, `cat`, `pwd`, `clear`, and `help`.
-  - **p10k-style Prompt:** A modern, riced zsh look.
-  - **Syntax Highlighting:** Real-time feedback as you type commands.
-  - **Tab Completion:** Quickly finish command or filenames.
-  - **Neofetch startup:** Custom system info and ASCII art.
-
-- **Dock & TopBar:**  
-  - Easy app launching and system info at a glance.
-  - Stable animations and responsive popovers.
-
-- **Data-Driven:**  
-  Most content is pulled from JSON files in `/public`, making updates straightforward.
+### Why this is cool:
+- **Master-Stack Tiling:** Just like a real WM (dwm, i3, or hyprland), windows resize smartly as you open and close them.
+- **"Riced" to Perfection:** Built entirely around the **Nord** color palette for that premium, low-eye-strain developer feel.
+- **Interactive Terminal:** It's not just for show. It has a virtual filesystem, syntax highlighting, and even tab-completion.
 
 ---
 
-## 🛠️ Design & Standards
+## ✨ Features that Pop
 
-- **Nord Theme:** Consistent color palette across the entire system.
-- **Modular Components:** Everything is built to be reusable and easy to test.
+### 📂 Advanced Projects Explorer
+Forget simple lists. Browse my work through a **modern Linux file manager**. 
+- **Interactive Previews:** Hover over any project file to get a "peek" at the screenshot and the tech stack used.
+- **Categorized Browsing:** Projects are organized into Web, Data Science, and Database directories.
+
+### 💻 High-Performance Terminal
+A fully-featured terminal emulator designed to feel like a **p10k-riced zsh shell**.
+- **Neofetch Startup:** Get the system specs (and a cool ASCII penguin) the moment you open it.
+- **Smart Syntax:** Real-time feedback turns commands green or red as you type.
+- **Efficiency:** Supports `ls`, `cd`, `cat`, `pwd`, and `clear` with full **Tab-Completion** support.
+
+### ⚓ Desktop UX
+- **Dynamic Dock:** Launch apps with smooth, stable animations.
+- **System TopBar:** Quick access to system info and interactive popovers.
+
+---
+
+## 🛠️ Built with Frontend Excellence
+
+I built this project to showcase not just creativity, but also professional engineering standards.
+
+- **Modern Toolchain:** Powered by **React 19**, **Vite**, and **Bun** for lightning-fast development and builds.
+- **Professional Workflow:** 
+  - **ESLint & Prettier:** Strictly enforced linting and formatting because clean code is a non-negotiable.
+  - **Component-Driven Design:** Highly modular architecture for maximum reusability.
+  - **Storybook:** Key UI components are documented and tested in isolation via Storybook.
+- **Fluid Motion:** Powered by **Framer Motion** for physics-based, natural-feeling transitions.
+- **Semantic HTML:** Deep focus on accessibility and document structure using proper `<nav>`, `<article>`, and `<ul>` tags.
 
 ---
 
 ## 🖥️ How to Run
 
+Clone the repo and get it running in seconds:
+
 ```bash
 bun install
 bun run dev
 ```
-or with npm:
-```bash
-npm install
-npm run dev
-```
+*Note: You can also use npm or yarn if that's your vibe.*
 
 ---
+
