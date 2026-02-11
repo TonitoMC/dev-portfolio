@@ -49,6 +49,7 @@ export default function Terminal({ onClose }) {
     // Create the history entry for the command itself
     const commandEntry = { 
       prompt: true, 
+      transient: true,
       userHost: `${USER}@${HOST}`, 
       cwd: [...cwd], 
       text: cmd 

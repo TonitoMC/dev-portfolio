@@ -36,9 +36,15 @@ export default function TerminalHistory({ history = [] }) {
           )
         }
         if (item.prompt) {
-          // item.prompt here is actually the full user@host:path string from Terminal.jsx
-          // We need to split it or pass structured data. 
-          // For simplicity and matching the new style:
+          if (item.transient) {
+            return (
+              <div key={i} className={styles.transientEntry}>
+                <span className={styles.path}>[{parsePath(item.cwd)}]</span>
+                <span className={styles.arrow}>❯</span>
+                <span className={styles.commandText}>{item.text}</span>
+              </div>
+            )
+          }
           return (
             <div key={i} className={styles.historyEntry}>
               <div className={styles.promptLine}>
@@ -67,7 +73,8 @@ TerminalHistory.propTypes = {
   history: PropTypes.arrayOf(
     PropTypes.shape({
       type: PropTypes.string,
-      prompt: PropTypes.string,
+      prompt: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+      transient: PropTypes.bool,
       userHost: PropTypes.string,
       cwd: PropTypes.array,
       text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
