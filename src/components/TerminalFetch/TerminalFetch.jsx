@@ -2,7 +2,7 @@ import styles from "./TerminalFetch.module.css"
 
 export default function TerminalFetch() {
   const info = [
-    { label: "OS", value: "Arch Linux x86_64", color: "var(--nord9)" },
+    { label: "OS", value: "CachyOS x86_64", color: "var(--nord9)" },
     { label: "Host", value: "Jose-Portfolio-v2", color: "var(--nord8)" },
     { label: "Kernel", value: "6.1.x-zen", color: "var(--nord7)" },
     { label: "Uptime", value: "2 hours, 14 mins", color: "var(--nord14)" },

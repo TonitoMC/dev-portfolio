@@ -24,7 +24,9 @@ export default function Terminal({ onClose }) {
       text: <TerminalFetch />,
     },
     {
-      prompt: `${USER}@${HOST}:~$`,
+      prompt: true, // Marker for two-line style
+      userHost: `${USER}@${HOST}`,
+      cwd: [],
       text: "Type 'help' for a list of commands.",
     },
   ])
@@ -38,10 +40,20 @@ export default function Terminal({ onClose }) {
       getNode,
       setFile,
     })
+    
+    // Create the history entry for the command itself
+    const commandEntry = { 
+      prompt: true, 
+      userHost: `${USER}@${HOST}`, 
+      cwd: [...cwd], 
+      text: cmd 
+    }
+
     if (newCwd !== undefined) setCwd(newCwd)
+    
     setHistory((prev) => [
       ...prev,
-      { prompt: `${USER}@${HOST}:${parsePath(cwd)}$`, text: cmd },
+      commandEntry,
       ...(output ? [{ text: output }] : []),
     ])
   }

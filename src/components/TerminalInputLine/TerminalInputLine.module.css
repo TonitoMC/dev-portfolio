@@ -1,24 +1,36 @@
-.inputLine {
+.container {
   display: flex;
-  align-items: center;
-  background: transparent;
-  font-family: "Fira Mono", "Fira Code", monospace;
-  font-size: 1rem;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-bottom: 2rem;
   width: 100%;
-  border: none;
-  margin: 0;
-  padding: 0;
-  padding-bottom: 1.5rem;
 }
 
-.prompt {
+.promptLine {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.userHost {
   color: var(--nord14);
-  font-weight: 600;
-  font-family: inherit;
+  font-weight: 700;
 }
 
 .path {
   color: var(--nord9);
+  font-weight: 500;
+}
+
+.inputLine {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.arrow {
+  color: var(--nord14);
+  font-weight: bold;
 }
 
 .input {
@@ -26,8 +38,7 @@
   border: none;
   color: var(--nord4);
   font-family: inherit;
-  font-size: inherit;
+  font-size: 1rem;
   outline: none;
   flex: 1;
-  margin-left: 0.2em;
 }

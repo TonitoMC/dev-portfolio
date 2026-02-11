@@ -7,17 +7,23 @@ function parsePath(pathArr) {
 
 export default function TerminalInputLine({ cwd, user, host, input, setInput, onSubmit, inputRef }) {
   return (
-    <form onSubmit={onSubmit} className={styles.inputLine} autoComplete="off">
-      <span className={styles.prompt}>
-        {user}@{host}:<span className={styles.path}>{parsePath(cwd)}</span>$
-      </span>{" "}
-      <input
-        ref={inputRef}
-        className={styles.input}
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        spellCheck={false}
-      />
+    <form onSubmit={onSubmit} className={styles.container} autoComplete="off">
+      <div className={styles.promptLine}>
+        <span className={styles.userHost}>
+          {user}@{host}
+        </span>
+        <span className={styles.path}>{parsePath(cwd)}</span>
+      </div>
+      <div className={styles.inputLine}>
+        <span className={styles.arrow}>❯</span>
+        <input
+          ref={inputRef}
+          className={styles.input}
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          spellCheck={false}
+        />
+      </div>
     </form>
   )
 }

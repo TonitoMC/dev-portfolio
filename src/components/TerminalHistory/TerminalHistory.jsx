@@ -3,6 +3,11 @@ import { useEffect, useRef } from "react"
 import { linkify } from "@utils/linkify"
 import styles from "./TerminalHistory.module.css"
 
+function parsePath(pathArr) {
+  if (!pathArr || !Array.isArray(pathArr)) return "~"
+  return pathArr.length === 0 ? "~" : "~/" + pathArr.join("/")
+}
+
 // Errors etc. are for later, it was originally planned to add
 // a more robust file system with text editors but wasn't possible
 // within timeframe. Still leaving it there to tinker with in the future :)
@@ -31,9 +36,19 @@ export default function TerminalHistory({ history = [] }) {
           )
         }
         if (item.prompt) {
+          // item.prompt here is actually the full user@host:path string from Terminal.jsx
+          // We need to split it or pass structured data. 
+          // For simplicity and matching the new style:
           return (
-            <div key={i} className={styles.line}>
-              <span className={styles.prompt}>{item.prompt}</span> {item.text}
+            <div key={i} className={styles.historyEntry}>
+              <div className={styles.promptLine}>
+                <span className={styles.userHost}>{item.userHost}</span>
+                <span className={styles.path}>{parsePath(item.cwd)}</span>
+              </div>
+              <div className={styles.commandLine}>
+                <span className={styles.arrow}>❯</span>
+                <span className={styles.commandText}>{item.text}</span>
+              </div>
             </div>
           )
         }
@@ -53,6 +68,8 @@ TerminalHistory.propTypes = {
     PropTypes.shape({
       type: PropTypes.string,
       prompt: PropTypes.string,
+      userHost: PropTypes.string,
+      cwd: PropTypes.array,
       text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
     })
   ).isRequired,
