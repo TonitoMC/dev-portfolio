@@ -9,25 +9,35 @@ const FileIcon = iconList.file
 
 export default function FileGrid({ items, onNavigate }) {
   const [hoveredItem, setHoveredItem] = useState(null)
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
   const gridRef = useRef(null)
 
-  // Reset hovered item when folder items change (navigation)
-  // And try to detect if mouse is already over an item
+  // Track mouse position globally within the grid container
   useEffect(() => {
-    setHoveredItem(null)
+    const handleMouseMove = (e) => {
+      setMousePos({ x: e.clientX, y: e.clientY })
+    }
+    window.addEventListener("mousemove", handleMouseMove)
+    return () => window.removeEventListener("mousemove", handleMouseMove)
+  }, [])
 
-    // Small delay to allow DOM to update, then check what's under the cursor
+  // When items change (navigation), check what's under the cursor
+  useEffect(() => {
     const timer = setTimeout(() => {
-      if (!gridRef.current) return
-
-      // We can use a mousemove listener or just check the element under point
-      // But a simple way is to wait for the next interaction or 
-      // check if we can find the element manually. 
-      // For now, let's just ensure we clean up.
+      const element = document.elementFromPoint(mousePos.x, mousePos.y)
+      const button = element?.closest(`.${styles.item}`)
+      if (button) {
+        // Find which item index this button corresponds to
+        const index = Array.from(gridRef.current.children).indexOf(button)
+        if (index !== -1 && items[index]) {
+          setHoveredItem(items[index])
+        }
+      } else {
+        setHoveredItem(null)
+      }
     }, 50)
-
     return () => clearTimeout(timer)
-  }, [items])
+  }, [items, mousePos.x, mousePos.y])
 
   const handleItemMouseEnter = (item) => {
     setHoveredItem(item)

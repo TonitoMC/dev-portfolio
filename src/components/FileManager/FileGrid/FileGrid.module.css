@@ -184,45 +184,47 @@
 .previewInfo {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.6rem;
   width: 100%;
+  text-align: center; /* Centered title and description */
 }
 
 .previewInfo h4 {
   color: var(--nord8);
   margin: 0;
-  font-size: 0.95rem;
+  font-size: 1.1rem; /* Slightly bigger */
   line-height: 1.3;
   word-wrap: break-word;
 }
 
 .previewInfo p {
   color: var(--nord4);
-  font-size: 0.8rem;
-  line-height: 1.5;
+  font-size: 0.9rem; /* Slightly bigger */
+  line-height: 1.6;
   margin: 0;
   word-wrap: break-word;
 }
 
 .learnedTag {
   margin-top: 0.5rem;
-  padding: 0.5rem 0.7rem;
+  padding: 0.6rem 0.8rem;
   background: var(--nord2);
   border-radius: 4px;
-  font-size: 0.7rem;
+  font-size: 0.8rem; /* Slightly bigger */
   color: var(--nord14);
-  border-left: 2px solid var(--nord14);
+  border-left: 3px solid var(--nord14);
   width: 100%;
   box-sizing: border-box;
   word-wrap: break-word;
   line-height: 1.4;
+  text-align: left; /* Keep tag content left-aligned for better readability with the border */
 }
 
 .learnedTag strong {
   display: block;
-  font-size: 0.65rem;
+  font-size: 0.7rem; /* Slightly bigger */
   opacity: 0.8;
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.2rem;
 }
 
 .empty {
