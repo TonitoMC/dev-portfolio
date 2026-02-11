@@ -58,24 +58,43 @@
   background: var(--nord11);
   cursor: pointer;
   box-shadow: 0 0 0 0px var(--nord11);
+  transition:
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.2s,
+    opacity 0.2s;
 }
 
 .dot.close:hover,
 .dot.close:focus {
   opacity: 1;
-  box-shadow:
-    0 0 0 2px var(--nord11),
-    0 2px 8px rgba(0, 0, 0, 0.1);
-  outline: 2px solid var(--nord11);
-  transform: scale(1.05);
+  filter: brightness(1.1);
+  box-shadow: 0 0 12px rgba(191, 97, 106, 0.4);
+  transform: scale(1.15);
+  outline: none;
 }
 
 .dot.minimize {
   background: var(--nord13);
+  transition:
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.2s;
+}
+
+.dot.minimize:hover {
+  filter: brightness(1.1);
+  transform: scale(1.15);
 }
 
 .dot.maximize {
   background: var(--nord14);
+  transition:
+    transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+    filter 0.2s;
+}
+
+.dot.maximize:hover {
+  filter: brightness(1.1);
+  transform: scale(1.15);
 }
 
 .content {

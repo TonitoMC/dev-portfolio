@@ -19,10 +19,10 @@ export default function TilingLayout({ children, pageKeys = [] }) {
             layout
             key={pageKeys[0] ?? 0}
             style={{ height: "100%", minHeight: 0, flex: `1 1 ${masterWindowFlexBasis}` }}
-            initial={{ opacity: 0, scale: 0.96 }}
+            initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.96 }}
-            transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
+            exit={{ opacity: 0 }}
+            transition={{ type: "spring", bounce: 0.1, duration: 0.4 }}
           >
             {childrenArray[0]}
           </motion.div>
@@ -45,10 +45,10 @@ export default function TilingLayout({ children, pageKeys = [] }) {
               key={pageKeys[i + 1] ?? i + 1}
               layout
               style={{ height: "100%", minHeight: 0 }}
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 24 }}
-              transition={{ type: "spring", bounce: 0.2, duration: 0.5 }}
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ type: "spring", bounce: 0.1, duration: 0.4 }}
             >
               {child}
             </motion.div>
