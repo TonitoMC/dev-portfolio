@@ -31,7 +31,7 @@
 }
 
 .path {
-  color: var(--nord9);
+  color: var(--nord8);
   font-weight: 500;
 }
 
@@ -42,7 +42,7 @@
 }
 
 .arrow {
-  color: var(--nord14);
+  color: var(--nord15);
   font-weight: bold;
 }
 

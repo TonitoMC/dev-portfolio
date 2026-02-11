@@ -6,10 +6,10 @@ export default function TerminalFetch() {
     { label: "Host", value: "Jose-Portfolio-v2", color: "var(--nord8)" },
     { label: "Kernel", value: "6.1.x-zen", color: "var(--nord7)" },
     { label: "Uptime", value: "2 hours, 14 mins", color: "var(--nord14)" },
-    { label: "Shell", value: "zsh 5.9", color: "var(--nord10)" },
-    { label: "WM", value: "TilingLayout-WM", color: "var(--nord15)" },
-    { label: "Theme", value: "Nord-Riced", color: "var(--nord12)" },
-    { label: "Terminal", value: "React-Term", color: "var(--nord13)" },
+    { label: "Packages", value: "1337 (pacman)", color: "var(--nord10)" },
+    { label: "Shell", value: "zsh 5.9", color: "var(--nord15)" },
+    { label: "WM", value: "TilingLayout-WM", color: "var(--nord12)" },
+    { label: "Editor", value: "nvim (Neovim)", color: "var(--nord13)" },
   ]
 
   return (
