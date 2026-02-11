@@ -1,5 +1,4 @@
 import ProjectList from "./ProjectList"
-import { iconList } from "@constants/iconList"
 
 export default {
   title: "Components/ProjectList",

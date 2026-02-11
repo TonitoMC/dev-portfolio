@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 2.5rem;
   width: 100%;
+  max-width: 900px; /* Added max-width for better text reflow */
   margin: 0 auto;
   padding-bottom: 2rem;
   opacity: 0;

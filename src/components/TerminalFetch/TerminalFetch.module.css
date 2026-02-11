@@ -1,0 +1,87 @@
+.fetchContainer {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem 0;
+  color: var(--nord4);
+  font-family: "Fira Mono", "Fira Code", monospace;
+  flex-wrap: wrap;
+}
+
+.asciiArt {
+  color: var(--nord9);
+  margin: 0;
+  line-height: 1.2;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.userHost {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.user {
+  color: var(--nord14);
+}
+
+.at {
+  color: var(--nord4);
+}
+
+.host {
+  color: var(--nord14);
+}
+
+.separator {
+  color: var(--nord4);
+  opacity: 0.5;
+  margin-bottom: 0.2rem;
+}
+
+.infoItem {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.label {
+  font-weight: bold;
+  min-width: 80px;
+}
+
+.value {
+  color: var(--nord4);
+}
+
+.colorPalette {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+}
+
+.colorBlock {
+  width: 1.2rem;
+  height: 0.8rem;
+  border-radius: 2px;
+}
+
+:global(.color-0) { background: var(--nord1); }
+:global(.color-1) { background: var(--nord11); }
+:global(.color-2) { background: var(--nord14); }
+:global(.color-3) { background: var(--nord13); }
+:global(.color-4) { background: var(--nord9); }
+:global(.color-5) { background: var(--nord15); }
+:global(.color-6) { background: var(--nord8); }
+:global(.color-7) { background: var(--nord6); }
+
+@media (max-width: 600px) {
+  .fetchContainer {
+    gap: 1rem;
+  }
+}

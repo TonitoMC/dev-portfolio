@@ -1,0 +1,32 @@
+.fileManager {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background: var(--nord0);
+  align-self: stretch;
+  border-bottom-left-radius: 1.2rem; /* Match Window.module.css */
+  border-bottom-right-radius: 1.2rem;
+  overflow: hidden; /* Ensure contents don't bleed out */
+}
+
+.mainLayout {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.statusBar {
+  padding: 0.5rem 1.2rem; /* Improved padding for better alignment */
+  background: var(--nord1);
+  border-top: 1px solid var(--nord3);
+  color: var(--nord4);
+  opacity: 0.8;
+  font-size: 0.75rem;
+  font-weight: 500; /* Slightly bolder for clarity */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom-left-radius: 1.2rem;
+  border-bottom-right-radius: 1.2rem;
+}

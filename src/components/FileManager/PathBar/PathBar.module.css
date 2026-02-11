@@ -1,0 +1,44 @@
+.pathBar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.2rem;
+  background: var(--nord2);
+  border-bottom: 1px solid var(--nord3);
+  font-family: inherit;
+  font-size: 0.9rem;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.partWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pathPart {
+  background: none;
+  border: none;
+  color: var(--nord8);
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.pathPart:hover:not(:disabled) {
+  background: var(--nord3);
+}
+
+.pathPart:disabled {
+  color: var(--nord4);
+  cursor: default;
+}
+
+.separator {
+  width: 0.8rem;
+  height: 0.8rem;
+  color: var(--nord3);
+  transform: rotate(-90deg);
+}

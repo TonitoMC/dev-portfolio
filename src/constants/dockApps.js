@@ -1,9 +1,9 @@
 import { iconList } from "@constants/iconList"
 import About from "@pages/About"
-import Projects from "@pages/Projects"
 import FAQ from "@pages/FAQ"
 import Terminal from "@pages/Terminal"
 import Contact from "@pages/Contact"
+import FileManager from "@pages/FileManager"
 
 export const dockApps = [
   {
@@ -13,10 +13,10 @@ export const dockApps = [
     component: About,
   },
   {
-    key: "projects",
+    key: "projects-explorer",
     label: "Projects",
     icon: iconList.projects,
-    component: Projects,
+    component: FileManager,
   },
   {
     key: "faq",

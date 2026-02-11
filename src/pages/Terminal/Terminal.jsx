@@ -7,19 +7,22 @@ import TerminalInputLine from "@components/TerminalInputLine"
 import styles from "./Terminal.module.css"
 import PropTypes from "prop-types"
 
+import TerminalFetch from "@components/TerminalFetch"
+
 const USER = "jose"
 const HOST = "portfolio"
 
-function parsePath(pathArr) {
-  return pathArr.length === 0 ? "~" : "~/" + pathArr.join("/")
-}
-
 export default function Terminal({ onClose }) {
-  const { getNode, setFile } = useFileSystem()
+  const { getNode, setFile, listDir } = useFileSystem()
   const [cwd, setCwd] = useState([])
   const [history, setHistory] = useState([
     {
-      prompt: `${USER}@${HOST}:~$`,
+      text: <TerminalFetch />,
+    },
+    {
+      prompt: true, // Marker for two-line style
+      userHost: `${USER}@${HOST}`,
+      cwd: [],
       text: "Type 'help' for a list of commands.",
     },
   ])
@@ -27,16 +30,32 @@ export default function Terminal({ onClose }) {
   const inputRef = useRef()
 
   const handleCommand = (cmd) => {
+    if (cmd.trim() === "clear") {
+      setHistory([])
+      return
+    }
+
     const { output, newCwd } = runTerminalCommand(cmd, {
       cwd,
       setCwd,
       getNode,
       setFile,
     })
+    
+    // Create the history entry for the command itself
+    const commandEntry = { 
+      prompt: true, 
+      transient: true,
+      userHost: `${USER}@${HOST}`, 
+      cwd: [...cwd], 
+      text: cmd 
+    }
+
     if (newCwd !== undefined) setCwd(newCwd)
+    
     setHistory((prev) => [
       ...prev,
-      { prompt: `${USER}@${HOST}:${parsePath(cwd)}$`, text: cmd },
+      commandEntry,
       ...(output ? [{ text: output }] : []),
     ])
   }
@@ -59,6 +78,8 @@ export default function Terminal({ onClose }) {
           setInput={setInput}
           onSubmit={handleSubmit}
           inputRef={inputRef}
+          listDir={listDir}
+          getNode={getNode}
         />
       </div>
     </Window>

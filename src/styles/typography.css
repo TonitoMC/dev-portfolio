@@ -1,19 +1,18 @@
 :root {
   --page-title-color: var(--nord8);
-  --page-title-size: 1.5rem;
+  --page-title-size: clamp(1.5rem, 2.2vw, 2rem);
   --page-title-weight: 700;
   --page-title-spacing: 0.03em;
-  --page-title-margin-bottom: 1.2rem;
+  --page-title-margin-bottom: 1rem; /* Slightly reduced */
 
   --page-subtitle-color: var(--nord7);
-  --page-subtitle-size: 1.2rem;
+  --page-subtitle-size: clamp(1.2rem, 1.8vw, 1.6rem);
   --page-subtitle-weight: 600;
   --page-subtitle-spacing: 0.02em;
   --page-subtitle-margin-bottom: 0.5rem;
 
-  --page-paragraph-size: 1.05rem;
   --page-paragraph-color: var(--nord4);
-  --page-paragraph-margin-bottom: 1.2rem;
+  --page-paragraph-margin-bottom: 1rem; /* Slightly reduced */
 }
 
 h1 {
@@ -43,8 +42,9 @@ h3 {
 }
 
 p {
-  font-size: var(--page-paragraph-size);
+  font-size: clamp(0.95rem, 1.2vw, 1.2rem); /* Adjusted values */
   color: var(--page-paragraph-color);
   margin-bottom: var(--page-paragraph-margin-bottom);
   text-align: left;
+  line-height: 1.6; /* Slightly reduced */
 }

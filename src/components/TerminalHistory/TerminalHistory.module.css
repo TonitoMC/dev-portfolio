@@ -12,35 +12,56 @@
   display: none; /* Chrome, Safari */
 }
 
-.line {
+.historyEntry {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.promptLine {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.userHost {
+  color: var(--nord14);
+  font-weight: 700;
+}
+
+.path {
+  color: var(--nord8);
+  font-weight: 500;
+}
+
+.commandLine {
   display: flex;
   align-items: center;
-  margin-bottom: 0.2rem;
+  gap: 0.6rem;
 }
 
-.prompt {
-  color: var(--nord8);
-  font-weight: 600;
-  min-width: 13ch;
-  display: inline-block;
+.arrow {
+  color: var(--nord15);
+  font-weight: bold;
 }
 
-.outputLine {
+.commandText {
+  color: var(--nord4);
+}
+
+.transientEntry {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  gap: 0.6rem;
   margin-bottom: 0.2rem;
-}
-
-.promptSpacer {
-  min-width: 13ch;
-  display: inline-block;
-  content: "";
 }
 
 .output,
 .error,
 .info {
   margin: 0;
+  margin-bottom: 0.5rem;
   white-space: pre-wrap;
   font-family: inherit;
   font-size: inherit;

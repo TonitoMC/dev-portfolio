@@ -6,7 +6,11 @@ const ABOUT_TXT =
 function buildFS(projects, faq, contact) {
   return {
     "about.txt": ABOUT_TXT,
-    projects: { ...projects },
+    projects: {
+      Web: { ...projects },
+      "Data Science": {},
+      Databases: {},
+    },
     faq: { ...faq },
     contact: { ...contact },
   }

@@ -1,87 +1,64 @@
-# My Developer Portfolio
+# 🐧 Custom-Riced Developer Portfolio
 
-A Unix-inspired, tiling window manager portfolio built with React, Vite and Bun.  
-Explore my projects, FAQ, and contact info in a playful, interactive desktop-like environment publicly hosted [here](https://jose-merida.netlify.app)
+Welcome to my interactive developer portfolio! This isn't your standard vertical-scrolling site. I've built a **Unix-inspired, tiling window manager environment** right in the browser. It's a tribute to the "riced" Linux setups I love, blending heavy functionality with a clean, professional aesthetic.
 
----
-
-## 🚀 Technologies Used
-
-- **React** — Component-driven UI
-- **Vite** — Lightning-fast build tool and dev server
-- **Bun** — Modern JS runtime and package manager
-- **Framer Motion** — Smooth, modern animations for window transitions
-- **SVGR** — SVGs as React components for icons
-- **Netlify** — Simple, fast deployment
-- **Storybook** — Visual documentation and isolated component development
+Check out the live version here: **[jose-merida.netlify.app](https://jose-merida.netlify.app)**
 
 ---
 
-## ✨ Features
+## 🚀 The Vision
 
-- **Tiling Window Manager UI:**  
-  Open, close, and tile multiple pages (About, Projects, FAQ, Contact, Terminal) just like a real WM.  
-  Master-stack layout with smooth transitions.
+I wanted to build something that reflects how I actually work. This portfolio simulates a desktop environment where you can open multiple apps, tile them to your liking, and interact with a functional system.
 
-- **Terminal Emulator:**  
-  - Supports `ls`, `cd`, `cat`, and `help` commands.
-  - Virtual filesystem with dynamic files:  
-    - `about.txt`
-    - `projects/ProjectName.txt`  
-    - `faq/faq.txt`
-    - `contact/email.txt`, `contact/github.txt`
-  - Clickable links in terminal output.
-
-- **Dock & TopBar:**  
-  - Dock for launching apps, styled like a real desktop.
-  - TopBar with dynamic icons, popovers, and system info.
-
-- **Data-Driven:**  
-  - Projects, FAQ, and contact info are loaded from JSON files in `/public` for easy updates without redeploying.
-
-- **Single Source of Truth for Icons:**  
-  - All icons are managed via an `iconList` for consistency and easy updates.
-
-- **Component Documentation with Storybook:**
-  - Components are visually testable in Storybook, making the codebase easy to understand and extend
+### Why this is cool:
+- **Master-Stack Tiling:** Just like a real WM (dwm, i3, or hyprland), windows resize smartly as you open and close them.
+- **"Riced" to Perfection:** Built entirely around the **Nord** color palette for that premium, low-eye-strain developer feel.
+- **Interactive Terminal:** It's not just for show. It has a virtual filesystem, syntax highlighting, and even tab-completion.
 
 ---
 
-## 🛠️ Design
+## ✨ Features that Pop
 
-- **Component-Driven:**  
-  Every UI element is a reusable, modular React component, making the codebase easy to maintain and extend.
+### 📂 Advanced Projects Explorer
+Forget simple lists. Browse my work through a **modern Linux file manager**. 
+- **Interactive Previews:** Hover over any project file to get a "peek" at the screenshot and the tech stack used.
+- **Categorized Browsing:** Projects are organized into Web, Data Science, and Database directories.
 
-- **Global CSS Variables:**  
-  Colors, spacing, and typography are managed with CSS variables for consistent theming and easy tweaks.
+### 💻 High-Performance Terminal
+A fully-featured terminal emulator designed to feel like a **p10k-riced zsh shell**.
+- **Neofetch Startup:** Get the system specs (and a cool ASCII penguin) the moment you open it.
+- **Smart Syntax:** Real-time feedback turns commands green or red as you type.
+- **Efficiency:** Supports `ls`, `cd`, `cat`, `pwd`, and `clear` with full **Tab-Completion** support.
 
-- **Semantic HTML:**  
-  Uses `<main>`, `<section>`, `<article>`, `<nav>`, and `<button>` for accessibility and SEO.
-
-- **Animations with Framer Motion:**  
-  All window transitions and popovers use Framer Motion for a modern, smooth feel.
-
-- **Linting and Formatting:**  
-  ESLint and Prettier are used to enforce code quality, consistent style, and catch errors early.
-
-- **PropTypes for Prop Validation:**  
-  All components use PropTypes for runtime prop validation and self-documentation.
-
-- **Consistent Project Structure:**  
-  The codebase is organized into clear folders for components, hooks, constants, pages, and styles, making it easy to navigate and scale.
+### ⚓ Desktop UX
+- **Dynamic Dock:** Launch apps with smooth, stable animations.
+- **System TopBar:** Quick access to system info and interactive popovers.
 
 ---
 
-## 🖥️ How to Run Locally
+## 🛠️ Built with Frontend Excellence
+
+I built this project to showcase not just creativity, but also professional engineering standards.
+
+- **Modern Toolchain:** Powered by **React 19**, **Vite**, and **Bun** for lightning-fast development and builds.
+- **Professional Workflow:** 
+  - **ESLint & Prettier:** Strictly enforced linting and formatting because clean code is a non-negotiable.
+  - **Component-Driven Design:** Highly modular architecture for maximum reusability.
+  - **Storybook:** Key UI components are documented and tested in isolation via Storybook.
+- **Fluid Motion:** Powered by **Framer Motion** for physics-based, natural-feeling transitions.
+- **Semantic HTML:** Deep focus on accessibility and document structure using proper `<nav>`, `<article>`, and `<ul>` tags.
+
+---
+
+## 🖥️ How to Run
+
+Clone the repo and get it running in seconds:
 
 ```bash
 bun install
 bun run dev
 ```
-or with npm/yarn:
-```bash
-npm install
-npm run dev
-```
+*Note: You can also use npm or yarn if that's your vibe.*
 
 ---
+
