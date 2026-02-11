@@ -7,7 +7,7 @@ import FileGrid from "@components/FileManager/FileGrid"
 import styles from "./FileManager.module.css"
 
 export default function FileManager({ onClose }) {
-  const [path, setPath] = useState([])
+  const [path, setPath] = useState(["projects"])
   const [projects, setProjects] = useState([])
 
   useEffect(() => {
@@ -17,37 +17,44 @@ export default function FileManager({ onClose }) {
   }, [])
 
   const currentItems = useMemo(() => {
-    // Root level
-    if (path.length === 0) {
+    // Current folder is root of the app (which is /projects)
+    if (path.length === 1 && path[0] === "projects") {
       return [
-        { name: "Web", type: "folder", path: ["Web"] },
-        { name: "Data Science", type: "folder", path: ["Data Science"] },
-        { name: "Databases", type: "folder", path: ["Databases"] },
+        { name: "Web", type: "folder", path: ["projects", "Web"] },
+        { name: "Data Science", type: "folder", path: ["projects", "Data Science"] },
+        { name: "Databases", type: "folder", path: ["projects", "Databases"] },
       ]
     }
 
-    const currentFolder = path[0]
+    // Navigating inside projects subfolders
+    if (path[0] === "projects" && path.length > 1) {
+      const currentSubFolder = path[1]
 
-    if (currentFolder === "Web") {
-      return projects.map((project) => ({
-        name: project.title,
-        type: "file",
-        url: project.url,
-        description: project.description,
-        learned: project.learned,
-      }))
+      if (currentSubFolder === "Web") {
+        return projects.map((project) => ({
+          name: project.title,
+          type: "file",
+          url: project.url,
+          description: project.description,
+          learned: project.learned,
+        }))
+      }
     }
 
-    // Data Science and Databases are currently empty as per requirement
     return []
   }, [path, projects])
 
   const handleNavigate = (newPath) => {
-    setPath(newPath)
+    // Don't allow navigating above 'projects' in this view
+    if (newPath.length === 0) {
+      setPath(["projects"])
+    } else {
+      setPath(newPath)
+    }
   }
 
   return (
-    <Window title="File Manager" onClose={onClose}>
+    <Window title="Projects" onClose={onClose}>
       <section className={styles.fileManager}>
         <header>
           <PathBar path={path} onNavigate={handleNavigate} />

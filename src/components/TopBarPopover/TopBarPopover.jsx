@@ -3,20 +3,18 @@ import { useLayoutEffect, useState } from "react"
 import { motion } from "framer-motion"
 import styles from "./TopBarPopover.module.css"
 
-export default function TopBarPopover({ show, anchorRef, onMouseEnter, onMouseLeave, children }) {
+export default function TopBarPopover({ anchorRef, onMouseEnter, onMouseLeave, children }) {
   const [position, setPosition] = useState({ top: 0, left: 0 })
 
   useLayoutEffect(() => {
-    if (show && anchorRef?.current) {
+    if (anchorRef?.current) {
       const rect = anchorRef.current.getBoundingClientRect()
       setPosition({
         top: rect.bottom + 8,
         left: rect.left + rect.width / 2,
       })
     }
-  }, [show, anchorRef])
-
-  if (!show) return null
+  }, [anchorRef])
 
   return (
     <motion.div
@@ -25,13 +23,12 @@ export default function TopBarPopover({ show, anchorRef, onMouseEnter, onMouseLe
         position: "fixed",
         top: position.top,
         left: position.left,
-        transform: "translateX(-50%)",
         zIndex: 9999,
       }}
-      initial={{ opacity: 0, y: -10, scale: 0.95, x: "-50%" }}
-      animate={{ opacity: 1, y: 0, scale: 1, x: "-50%" }}
-      exit={{ opacity: 0, y: -10, scale: 0.95, x: "-50%" }}
-      transition={{ duration: 0.15, ease: "easeOut" }}
+      initial={{ opacity: 0, y: -6, x: "-50%" }}
+      animate={{ opacity: 1, y: 0, x: "-50%" }}
+      exit={{ opacity: 0, y: -6, x: "-50%" }}
+      transition={{ duration: 0.12, ease: "easeOut" }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
@@ -42,7 +39,6 @@ export default function TopBarPopover({ show, anchorRef, onMouseEnter, onMouseLe
 }
 
 TopBarPopover.propTypes = {
-  show: PropTypes.bool.isRequired,
   anchorRef: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,

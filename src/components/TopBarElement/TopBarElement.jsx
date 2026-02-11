@@ -10,12 +10,12 @@ export default function TopBarElement({ icon, ariaLabel, description, link, link
   const timeout = useRef()
 
   const open = () => {
-    clearTimeout(timeout.current)
+    if (timeout.current) clearTimeout(timeout.current)
     setShow(true)
   }
   const close = () => {
-    clearTimeout(timeout.current)
-    timeout.current = setTimeout(() => setShow(false), 120)
+    if (timeout.current) clearTimeout(timeout.current)
+    timeout.current = setTimeout(() => setShow(false), 150)
   }
 
   const hasPopover = Boolean(description || linkLabel || link)
@@ -35,7 +35,7 @@ export default function TopBarElement({ icon, ariaLabel, description, link, link
       <span className={styles.iconOnly}>{icon}</span>
       <AnimatePresence>
         {hasPopover && show && (
-          <TopBarPopover show={show} anchorRef={anchorRef} onMouseEnter={open} onMouseLeave={close}>
+          <TopBarPopover anchorRef={anchorRef} onMouseEnter={open} onMouseLeave={close}>
             {description && (
               <div style={{ marginBottom: link ? "0.5rem" : 0 }}>
                 <strong>{description}</strong>
@@ -51,6 +51,8 @@ export default function TopBarElement({ icon, ariaLabel, description, link, link
                   textDecoration: "underline",
                   cursor: "pointer",
                 }}
+                onFocus={open}
+                onBlur={close}
                 onClick={close}
               >
                 {linkLabel || link}

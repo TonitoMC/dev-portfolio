@@ -6,10 +6,10 @@ const FolderIcon = iconList.folder
 
 export default function FileSidebar({ currentFolder, onNavigate }) {
   const folders = [
-    { id: "root", name: "Root", path: [] },
-    { id: "web", name: "Web", path: ["Web"] },
-    { id: "data-science", name: "Data Science", path: ["Data Science"] },
-    { id: "databases", name: "Databases", path: ["Databases"] },
+    { id: "projects", name: "Projects", path: ["projects"] },
+    { id: "web", name: "Web", path: ["projects", "Web"] },
+    { id: "data-science", name: "Data Science", path: ["projects", "Data Science"] },
+    { id: "databases", name: "Databases", path: ["projects", "Databases"] },
   ]
 
   return (
@@ -18,8 +18,8 @@ export default function FileSidebar({ currentFolder, onNavigate }) {
       <ul className={styles.list}>
         {folders.map((folder) => {
           const isActive =
-            (folder.path.length === 0 && currentFolder.length === 0) ||
-            (folder.path.length > 0 && currentFolder[0] === folder.path[0])
+            (folder.path.length === 1 && currentFolder.length === 1 && folder.path[0] === currentFolder[0]) ||
+            (folder.path.length > 1 && currentFolder.length > 1 && folder.path[1] === currentFolder[1])
 
           return (
             <li key={folder.id}>

@@ -14,16 +14,10 @@ export const dockApps = [
     component: About,
   },
   {
-    key: "file-manager",
-    label: "Files",
-    icon: iconList.fileManager,
-    component: FileManager,
-  },
-  {
-    key: "projects",
+    key: "projects-explorer",
     label: "Projects",
     icon: iconList.projects,
-    component: Projects,
+    component: FileManager,
   },
   {
     key: "faq",
