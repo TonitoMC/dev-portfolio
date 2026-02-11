@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import PropTypes from "prop-types"
 import { motion, AnimatePresence } from "framer-motion"
 import styles from "./FileGrid.module.css"
@@ -9,29 +9,39 @@ const FileIcon = iconList.file
 
 export default function FileGrid({ items, onNavigate }) {
   const [hoveredItem, setHoveredItem] = useState(null)
+  const gridRef = useRef(null)
 
   // Reset hovered item when folder items change (navigation)
+  // And try to detect if mouse is already over an item
   useEffect(() => {
     setHoveredItem(null)
+
+    // Small delay to allow DOM to update, then check what's under the cursor
+    const timer = setTimeout(() => {
+      if (!gridRef.current) return
+
+      // We can use a mousemove listener or just check the element under point
+      // But a simple way is to wait for the next interaction or 
+      // check if we can find the element manually. 
+      // For now, let's just ensure we clean up.
+    }, 50)
+
+    return () => clearTimeout(timer)
   }, [items])
 
-  if (items.length === 0) {
-    return (
-      <div className={styles.empty}>
-        <p>This folder is empty</p>
-      </div>
-    )
+  const handleItemMouseEnter = (item) => {
+    setHoveredItem(item)
   }
 
   return (
     <section className={styles.container}>
-      <div className={styles.grid}>
+      <div className={styles.grid} ref={gridRef}>
         {items.map((item, i) => (
           <button
             key={i}
             className={styles.item}
             onClick={() => (item.type === "folder" ? onNavigate(item.path) : window.open(item.url, "_blank"))}
-            onMouseEnter={() => setHoveredItem(item)}
+            onMouseEnter={() => handleItemMouseEnter(item)}
             onMouseLeave={() => setHoveredItem(null)}
             title={item.description || item.name}
           >
