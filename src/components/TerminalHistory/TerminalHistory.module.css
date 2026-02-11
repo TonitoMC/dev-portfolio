@@ -19,9 +19,8 @@
 }
 
 .prompt {
-  color: var(--nord8);
+  color: var(--nord14);
   font-weight: 600;
-  min-width: 13ch;
   display: inline-block;
 }
 

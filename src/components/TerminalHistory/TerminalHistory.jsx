@@ -39,7 +39,7 @@ export default function TerminalHistory({ history = [] }) {
         }
         return (
           <pre key={i} className={styles.output}>
-            {linkify(item.text)}
+            {typeof item.text === "string" ? linkify(item.text) : item.text}
           </pre>
         )
       })}
@@ -53,7 +53,7 @@ TerminalHistory.propTypes = {
     PropTypes.shape({
       type: PropTypes.string,
       prompt: PropTypes.string,
-      text: PropTypes.string.isRequired,
+      text: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
     })
   ).isRequired,
 }

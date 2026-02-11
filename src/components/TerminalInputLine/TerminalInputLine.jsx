@@ -9,7 +9,7 @@ export default function TerminalInputLine({ cwd, user, host, input, setInput, on
   return (
     <form onSubmit={onSubmit} className={styles.inputLine} autoComplete="off">
       <span className={styles.prompt}>
-        {user}@{host}:{parsePath(cwd)}$
+        {user}@{host}:<span className={styles.path}>{parsePath(cwd)}</span>$
       </span>{" "}
       <input
         ref={inputRef}

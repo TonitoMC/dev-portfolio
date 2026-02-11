@@ -7,6 +7,8 @@ import TerminalInputLine from "@components/TerminalInputLine"
 import styles from "./Terminal.module.css"
 import PropTypes from "prop-types"
 
+import TerminalFetch from "@components/TerminalFetch"
+
 const USER = "jose"
 const HOST = "portfolio"
 
@@ -18,6 +20,9 @@ export default function Terminal({ onClose }) {
   const { getNode, setFile } = useFileSystem()
   const [cwd, setCwd] = useState([])
   const [history, setHistory] = useState([
+    {
+      text: <TerminalFetch />,
+    },
     {
       prompt: `${USER}@${HOST}:~$`,
       text: "Type 'help' for a list of commands.",

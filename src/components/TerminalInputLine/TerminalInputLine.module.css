@@ -12,9 +12,13 @@
 }
 
 .prompt {
-  color: var(--nord8);
+  color: var(--nord14);
   font-weight: 600;
   font-family: inherit;
+}
+
+.path {
+  color: var(--nord9);
 }
 
 .input {
