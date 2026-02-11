@@ -7,7 +7,53 @@ function parsePath(pathArr) {
 
 const VALID_COMMANDS = ["ls", "cd", "cat", "help", "pwd", "clear"]
 
-export default function TerminalInputLine({ cwd, user, host, input, setInput, onSubmit, inputRef }) {
+export default function TerminalInputLine({
+  cwd,
+  user,
+  host,
+  input,
+  setInput,
+  onSubmit,
+  inputRef,
+  listDir,
+  getNode,
+}) {
+  const handleKeyDown = (e) => {
+    if (e.key === "Tab") {
+      e.preventDefault()
+      if (!input.trim()) return
+
+      const parts = input.split(/\s+/)
+      const lastPart = parts[parts.length - 1]
+
+      if (parts.length === 1) {
+        // Complete command
+        const matches = VALID_COMMANDS.filter((cmd) => cmd.startsWith(lastPart))
+        if (matches.length === 1) {
+          setInput(matches[0] + " ")
+        }
+      } else {
+        // Complete file/dir in cwd
+        const pathParts = lastPart.split("/")
+        const prefix = pathParts.pop() || ""
+        const searchPath = [...cwd, ...pathParts]
+
+        const items = listDir(searchPath)
+        const matches = items.filter((item) => item.startsWith(prefix))
+
+        if (matches.length === 1) {
+          const completedItem = matches[0]
+          const fullPathToItem = [...searchPath, completedItem]
+          const isDir = typeof getNode(fullPathToItem) === "object"
+
+          const completedPath = [...pathParts, completedItem].join("/")
+          parts[parts.length - 1] = completedPath
+          setInput(parts.join(" ") + (isDir ? "/" : ""))
+        }
+      }
+    }
+  }
+
   const renderHighlightedText = () => {
     if (!input) return null
 
@@ -52,6 +98,7 @@ export default function TerminalInputLine({ cwd, user, host, input, setInput, on
             className={styles.input}
             value={input}
             onChange={(e) => setInput(e.target.value)}
+            onKeyDown={handleKeyDown}
             spellCheck={false}
           />
         </div>
@@ -72,4 +119,6 @@ TerminalInputLine.propTypes = {
     PropTypes.func,
     PropTypes.shape({ current: PropTypes.any }),
   ]).isRequired,
+  listDir: PropTypes.func.isRequired,
+  getNode: PropTypes.func.isRequired,
 }

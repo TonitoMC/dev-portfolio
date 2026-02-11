@@ -17,7 +17,7 @@ function parsePath(pathArr) {
 }
 
 export default function Terminal({ onClose }) {
-  const { getNode, setFile } = useFileSystem()
+  const { getNode, setFile, listDir } = useFileSystem()
   const [cwd, setCwd] = useState([])
   const [history, setHistory] = useState([
     {
@@ -82,6 +82,8 @@ export default function Terminal({ onClose }) {
           setInput={setInput}
           onSubmit={handleSubmit}
           inputRef={inputRef}
+          listDir={listDir}
+          getNode={getNode}
         />
       </div>
     </Window>
