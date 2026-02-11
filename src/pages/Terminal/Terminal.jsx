@@ -12,10 +12,6 @@ import TerminalFetch from "@components/TerminalFetch"
 const USER = "jose"
 const HOST = "portfolio"
 
-function parsePath(pathArr) {
-  return pathArr.length === 0 ? "~" : "~/" + pathArr.join("/")
-}
-
 export default function Terminal({ onClose }) {
   const { getNode, setFile, listDir } = useFileSystem()
   const [cwd, setCwd] = useState([])

@@ -1,84 +1,60 @@
 # My Developer Portfolio
 
-A Unix-inspired, tiling window manager portfolio built with React, Vite and Bun.  
-Explore my projects, FAQ, and contact info in a playful, interactive desktop-like environment publicly hosted [here](https://jose-merida.netlify.app)
+A Unix-inspired, tiling window manager portfolio built with React, Vite, and Bun. 
+You can check out my projects, FAQ, and contact info in a playful desktop-like environment hosted [here](https://jose-merida.netlify.app).
 
 ---
 
-## 🚀 Technologies Used
+## 🚀 Technologies
 
-- **React** — Component-driven UI
-- **Vite** — Lightning-fast build tool and dev server
-- **Bun** — Modern JS runtime and package manager
-- **Framer Motion** — Smooth, modern animations for window transitions
-- **SVGR** — SVGs as React components for icons
-- **Netlify** — Simple, fast deployment
-- **Storybook** — Visual documentation and isolated component development
+- **React** — Component-driven UI.
+- **Vite & Bun** — Modern toolchain for speed.
+- **Framer Motion** — Smooth window animations and transitions.
+- **SVGR** — Sharp vector icons as React components.
+- **Storybook** — Visual documentation for key UI components.
 
 ---
 
 ## ✨ Features
 
-- **Tiling Window Manager UI:**  
-  Open, close, and tile multiple pages (About, Projects, FAQ, Contact, Terminal) just like a real WM.  
-  Master-stack layout with smooth transitions.
+- **Tiling Window Manager:**  
+  Open, close, and tile multiple apps. It features a master-stack layout that resizes smartly.
 
-- **Terminal Emulator:**  
-  - Supports `ls`, `cd`, `cat`, and `help` commands.
-  - Virtual filesystem with dynamic files:  
-    - `about.txt`
-    - `projects/ProjectName.txt`  
-    - `faq/faq.txt`
-    - `contact/email.txt`, `contact/github.txt`
-  - Clickable links in terminal output.
+- **Advanced Projects Explorer:**
+  - A "riced" Linux file manager experience.
+  - Hover over projects to see a quick preview and tech stack.
+  - Organized by category: Web, Data Science, and Databases.
+
+- **Interactive Terminal Emulator:**  
+  - Supports `ls`, `cd`, `cat`, `pwd`, `clear`, and `help`.
+  - **p10k-style Prompt:** A modern, riced zsh look.
+  - **Syntax Highlighting:** Real-time feedback as you type commands.
+  - **Tab Completion:** Quickly finish command or filenames.
+  - **Neofetch startup:** Custom system info and ASCII art.
 
 - **Dock & TopBar:**  
-  - Dock for launching apps, styled like a real desktop.
-  - TopBar with dynamic icons, popovers, and system info.
+  - Easy app launching and system info at a glance.
+  - Stable animations and responsive popovers.
 
 - **Data-Driven:**  
-  - Projects, FAQ, and contact info are loaded from JSON files in `/public` for easy updates without redeploying.
-
-- **Single Source of Truth for Icons:**  
-  - All icons are managed via an `iconList` for consistency and easy updates.
-
-- **Component Documentation with Storybook:**
-  - Components are visually testable in Storybook, making the codebase easy to understand and extend
+  Most content is pulled from JSON files in `/public`, making updates straightforward.
 
 ---
 
-## 🛠️ Design
+## 🛠️ Design & Standards
 
-- **Component-Driven:**  
-  Every UI element is a reusable, modular React component, making the codebase easy to maintain and extend.
-
-- **Global CSS Variables:**  
-  Colors, spacing, and typography are managed with CSS variables for consistent theming and easy tweaks.
-
-- **Semantic HTML:**  
-  Uses `<main>`, `<section>`, `<article>`, `<nav>`, and `<button>` for accessibility and SEO.
-
-- **Animations with Framer Motion:**  
-  All window transitions and popovers use Framer Motion for a modern, smooth feel.
-
-- **Linting and Formatting:**  
-  ESLint and Prettier are used to enforce code quality, consistent style, and catch errors early.
-
-- **PropTypes for Prop Validation:**  
-  All components use PropTypes for runtime prop validation and self-documentation.
-
-- **Consistent Project Structure:**  
-  The codebase is organized into clear folders for components, hooks, constants, pages, and styles, making it easy to navigate and scale.
+- **Nord Theme:** Consistent color palette across the entire system.
+- **Modular Components:** Everything is built to be reusable and easy to test.
 
 ---
 
-## 🖥️ How to Run Locally
+## 🖥️ How to Run
 
 ```bash
 bun install
 bun run dev
 ```
-or with npm/yarn:
+or with npm:
 ```bash
 npm install
 npm run dev

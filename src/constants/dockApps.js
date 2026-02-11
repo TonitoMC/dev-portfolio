@@ -1,6 +1,5 @@
 import { iconList } from "@constants/iconList"
 import About from "@pages/About"
-import Projects from "@pages/Projects"
 import FAQ from "@pages/FAQ"
 import Terminal from "@pages/Terminal"
 import Contact from "@pages/Contact"
