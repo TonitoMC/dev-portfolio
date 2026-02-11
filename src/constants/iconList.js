@@ -5,6 +5,9 @@ import CalendarIcon from "@assets/CalendarIcon.svg?react"
 import ContactIcon from "@assets/ContactIcon.svg?react"
 import EmailIcon from "@assets/EmailIcon.svg?react"
 import FAQIcon from "@assets/FAQIcon.svg?react"
+import FileIcon from "@assets/FileIcon.svg?react"
+import FileManagerIcon from "@assets/FileManagerIcon.svg?react"
+import FolderIcon from "@assets/FolderIcon.svg?react"
 import GitHubIcon from "@assets/GitHubIcon.svg?react"
 import ProjectsIcon from "@assets/ProjectsIcon.svg?react"
 import SettingsIcon from "@assets/SettingsIcon.svg?react"
@@ -20,6 +23,9 @@ export const iconList = {
   contact: ContactIcon,
   email: EmailIcon,
   faq: FAQIcon,
+  file: FileIcon,
+  fileManager: FileManagerIcon,
+  folder: FolderIcon,
   github: GitHubIcon,
   projects: ProjectsIcon,
   settings: SettingsIcon,

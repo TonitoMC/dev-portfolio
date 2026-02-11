@@ -1,0 +1,26 @@
+.fileManager {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background: var(--nord0);
+  align-self: stretch;
+}
+
+.mainLayout {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.statusBar {
+  padding: 0.4rem 1rem;
+  background: var(--nord1);
+  border-top: 1px solid var(--nord3);
+  color: var(--nord4); /* Improved contrast */
+  opacity: 0.8;
+  font-size: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

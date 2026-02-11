@@ -4,6 +4,7 @@ import Projects from "@pages/Projects"
 import FAQ from "@pages/FAQ"
 import Terminal from "@pages/Terminal"
 import Contact from "@pages/Contact"
+import FileManager from "@pages/FileManager"
 
 export const dockApps = [
   {
@@ -11,6 +12,12 @@ export const dockApps = [
     label: "About",
     icon: iconList.about,
     component: About,
+  },
+  {
+    key: "file-manager",
+    label: "Files",
+    icon: iconList.fileManager,
+    component: FileManager,
   },
   {
     key: "projects",

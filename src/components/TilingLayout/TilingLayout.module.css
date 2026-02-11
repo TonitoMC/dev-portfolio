@@ -20,12 +20,18 @@
 
 .masterWindow {
   flex: 1 1 0;
-  max-width: 50%;
   min-width: 0;
   min-height: 0;
   height: 100%;
   display: flex;
   align-items: stretch;
+}
+
+.singleWindowCentered {
+  width: 50%;
+  min-width: 320px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .windowWrapper {
