@@ -1,5 +1,6 @@
 import PropTypes from "prop-types"
 import { useRef, useState } from "react"
+import { AnimatePresence } from "framer-motion"
 import TopBarPopover from "@components/TopBarPopover"
 import styles from "./TopBarElement.module.css"
 
@@ -32,30 +33,32 @@ export default function TopBarElement({ icon, ariaLabel, description, link, link
       style={{ cursor: "default" }}
     >
       <span className={styles.iconOnly}>{icon}</span>
-      {hasPopover && (
-        <TopBarPopover show={show} anchorRef={anchorRef} onMouseEnter={open} onMouseLeave={close}>
-          {description && (
-            <div style={{ marginBottom: link ? "0.5rem" : 0 }}>
-              <strong>{description}</strong>
-            </div>
-          )}
-          {link && (
-            <a
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                color: "var(--nord8)",
-                textDecoration: "underline",
-                cursor: "pointer",
-              }}
-              onClick={close}
-            >
-              {linkLabel || link}
-            </a>
-          )}
-        </TopBarPopover>
-      )}
+      <AnimatePresence>
+        {hasPopover && show && (
+          <TopBarPopover show={show} anchorRef={anchorRef} onMouseEnter={open} onMouseLeave={close}>
+            {description && (
+              <div style={{ marginBottom: link ? "0.5rem" : 0 }}>
+                <strong>{description}</strong>
+              </div>
+            )}
+            {link && (
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: "var(--nord8)",
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                }}
+                onClick={close}
+              >
+                {linkLabel || link}
+              </a>
+            )}
+          </TopBarPopover>
+        )}
+      </AnimatePresence>
     </span>
   )
 }
