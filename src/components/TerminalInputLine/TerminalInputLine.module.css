@@ -26,19 +26,53 @@
   display: flex;
   align-items: center;
   gap: 0.6rem;
+  position: relative; /* Container for absolute layering */
 }
 
 .arrow {
   color: var(--nord14);
   font-weight: bold;
+  z-index: 2;
+}
+
+.inputWrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.input, .highlightLayer {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  width: 100%;
+  line-height: 1.2;
 }
 
 .input {
-  background: transparent;
-  border: none;
-  color: var(--nord4);
-  font-family: inherit;
-  font-size: 1rem;
+  color: transparent; /* Text is invisible to show highlight underneath */
+  caret-color: var(--nord4);
   outline: none;
-  flex: 1;
+  position: relative;
+  z-index: 2;
 }
+
+.highlightLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  white-space: pre;
+  pointer-events: none;
+  color: var(--nord4); /* Default color */
+}
+
+/* Syntax Colors */
+.validCommand { color: var(--nord14); }
+.invalidCommand { color: var(--nord11); }
+.argument { color: var(--nord8); }
+

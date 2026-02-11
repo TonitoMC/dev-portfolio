@@ -34,6 +34,11 @@ export default function Terminal({ onClose }) {
   const inputRef = useRef()
 
   const handleCommand = (cmd) => {
+    if (cmd.trim() === "clear") {
+      setHistory([])
+      return
+    }
+
     const { output, newCwd } = runTerminalCommand(cmd, {
       cwd,
       setCwd,

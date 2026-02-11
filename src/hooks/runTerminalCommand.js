@@ -58,6 +58,10 @@ export default function runTerminalCommand(cmd, { cwd, getNode }) {
         output = "No such file"
       }
     }
+  } else if (command === "pwd") {
+    output = cwd.length === 0 ? "/" : "/" + cwd.join("/")
+  } else if (command === "clear") {
+    output = "" // Handled specially if needed, but recognized
   } else if (command === "help") {
     output = [
       "ls [dir]          List files/folders (optionally in dir)",
